@@ -1,0 +1,42 @@
+.DailyRoutine{
+    width: 100%;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    align-items: center;
+}
+.RoutineContainer{
+    display: flex;
+    align-items: center;
+}
+
+
+
+.DailyDataContainer,
+.IconContainer{
+    margin: 10px;
+    padding: 2%;
+    height: 50%; 
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+.IconContainer{
+
+    background-color: #333333;
+    color: #ffffff;
+    width: 60%;
+    justify-content: left;
+}
+.DailyDataContainer label,
+.IconContainer svg{
+    margin-right: 5px;
+}
+.DailyDataContainer{
+    width: 30%;
+    justify-content: center;
+    background-color: #ececec;
+}
+.DailyDataContainer label{
+    line-height: 2.5em;
+}
+

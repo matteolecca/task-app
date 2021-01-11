@@ -1,0 +1,25 @@
+.Statsitem{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 20% 40% auto;
+    background-color: #ecebeb;
+    align-items: center;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-align: center;
+}
+.Statsitem svg{
+    margin: 0 auto;
+}
+.completeNbr{
+    font-weight: 500;
+    font-size: large;
+}
+.completedStats{
+    font-size: 0.7em;
+    text-align: left;
+}
+.percentage{
+    margin-top: 2px;
+    font-weight: bold;
+}

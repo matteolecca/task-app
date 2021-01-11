@@ -1,0 +1,64 @@
+.Sidedrawer{
+    position: fixed;
+    width: 50%;
+    max-width: 100%;
+    min-height: 101vh;
+    top: 0;
+    bottom: 0;
+    z-index: 200;
+    background-color:#fff;
+    padding: 32px 16px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    transform: translateX(-200%);
+    transition: all 0.5s;
+}
+
+.opened{
+    /* transform: translateX(0); */
+    animation: openDrawer 0.5s ease-out forwards;
+}
+.closed{
+    /* transform: translateX(-200%); */
+    animation: closeDrawer 0.5s ease-out forwards;
+}
+.closeButton{
+    float: left;
+}
+.closeButton:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+.closeButton:active{
+    color:#ffffff;
+}
+
+@keyframes openDrawer{
+    0%{
+        transform: translateX(-200%);
+    }
+    
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes closeDrawer{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-200%);
+    }
+}
+@media(max-width:600px){
+    .Sidedrawer{
+        width: 100%;
+        padding: 0;
+    }
+    .Sidedrawer .closeButton{
+        margin: 20px 0 0 20px;
+    }
+}

@@ -1,0 +1,35 @@
+.Button{
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px auto;
+    width: 65%;
+    background-color: #333333;
+    outline: none;
+    border: none;
+}
+.Button:hover{
+    cursor: pointer;
+}
+.light{
+    background-color: #ffffff;
+    color: #333333;
+}
+.dark{
+    background-color: #333333;
+    color: #ffffff;
+}
+.disabled{
+    background-color: #ececec;
+    opacity: 1;
+    border-color: #ececec;
+
+}
+.disabled:hover{
+    cursor: not-allowed;
+}
+
+
+.Button:active{
+    color: #333333;
+}
+

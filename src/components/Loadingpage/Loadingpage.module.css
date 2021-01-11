@@ -1,0 +1,18 @@
+.Loadingpage{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    max-height: 100vh;
+  }
+  .Loadingpage img{
+      width: 75%;
+      margin: 0 auto;
+  }
+
+  @media(max-width:600px){
+    .Loadingpage img{
+        width: 100%;
+    }
+  }

@@ -1,0 +1,112 @@
+.NewtaskContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: fit-content;
+    width: 60%;
+    border-radius: 20px;
+    text-align: center;
+    z-index: 200;
+    align-items: center;
+    align-items: center;
+    display: flex;
+    font-size: larger;
+}
+.opened{
+    animation: openModal 0.5s ease-out forwards;
+}
+.NewtaskContainer label{
+    color: #757575;
+    width: 40%;
+    text-align: left;
+}
+.closed{
+    animation: closeModal 0.5s ease-out forwards;
+}
+.Newtask h2{
+    text-align: center;
+}
+.NewtaskContainer form{
+    display: grid;
+    width: 100%;
+    background-color:#ffffff ;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+.Newtask form div{
+    margin: 10px 0;
+}
+
+.logo{
+    max-height:200px;
+    margin: 0 auto;
+}
+.closeButton{
+    text-align: left;
+    color: rgba(221, 17, 17,0.7);
+}
+.closeButton:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+.closeButton:active{
+    color: #333333;
+}
+.errorMessage{
+    color: rgba(221, 17, 17,0.7);
+    height: 20px;
+}
+@keyframes openModal{
+    0%{
+        transform: translate(-50%,-200%);
+    }
+    50%{
+        transform: translate(-50%,-40%);
+    }
+    100%{
+        transform: translate(-50%,-50%);
+    }
+}
+@keyframes closeModal{
+    0%{
+        transform: translate(-50%,-50%);
+    }
+    100%{
+        transform: translate(-50%,-200%);
+    }
+}
+
+@media(max-height : 700px){
+    .Newtask{
+        height: fit-content;
+    }
+}
+@media(max-width : 600px){
+    input, select, textarea {
+        font-size: 16px;
+      }
+}
+@media(max-width : 400px){
+    .NewtaskContainer{
+        
+        width: 100vw;
+        height: 100vh;
+        background-color: #ffffff;
+        border-radius: 0;
+        transform: translate(0,0);
+    }
+    
+    .opened{
+        display: flex;
+    }
+    .closed{
+        display: none;
+    }
+
+.NewtaskContainer .closeButton{
+    margin-top: 20px;
+}
+
+ 
+}

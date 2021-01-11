@@ -1,0 +1,29 @@
+.Logoutview{
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #12751f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+}
+.logoutIcon{
+    color: #ffffff;
+    margin-right: 20px;
+}
+.logoutMessage{
+    color: #ffffff;
+}
+
+.Logoutview:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+.Logoutview:active{
+    opacity: 1;
+}
+@media(max-height:700px){
+    .Logoutview{
+        flex-grow: unset;
+    }
+}

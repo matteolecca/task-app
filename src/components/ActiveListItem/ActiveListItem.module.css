@@ -1,0 +1,31 @@
+.ActiveListItem{
+    display: flex;
+    border-radius: 10px;
+    height: 100%;
+    justify-content: space-between;
+    flex: 1 0;
+}
+.ActiveContainer{
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 25% 65% 10%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+.ActiveContainer label{
+    white-space: nowrap;
+    margin: 10px 10px 0 10px;
+    text-transform: capitalize;
+    font-weight: 700;
+    margin-left: 10px;
+}
+.RadioContainer{
+    align-self: center;
+}
+
+@media(max-width:500px){
+    .ActiveContainer label{
+        font-size: smaller;
+    }
+}

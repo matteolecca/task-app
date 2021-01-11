@@ -1,0 +1,42 @@
+.ListSkeleton{
+    width: 100%;
+    height: 100%;
+
+}
+.ListSkeletonItem{
+    height: 100px;
+    margin-bottom: 10px;
+}
+.ListSkeletonItem span{
+    height: 100%;
+    transform: scale(1) !important;
+    border-radius: 10px;
+}
+.ColumnSkeleton{
+    height: 50px;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.ColumnSkeletonItem{
+    height: 100%;
+    margin : 0 5px;
+
+}
+.ColumnSkeletonItem span{
+    height: 100%;
+    transform: scale(1) !important;
+    border-radius: 5px;
+}
+.SingleTaskSkeleton{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 15% 10% 60%;
+    justify-content: center;
+
+}
+.SingleTaskSkeleton span{
+    margin: 0 auto;
+}

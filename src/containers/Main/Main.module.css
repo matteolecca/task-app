@@ -1,0 +1,152 @@
+
+.Container{
+    display: grid;
+    box-sizing: border-box;
+    /* max-height: 90vh; */
+    height: 90vh;
+    grid-template-columns: 35% 15% 10% 20% 20% ;
+    grid-template-rows: 30% 15% 15% 20% 20%;
+    transition: all 0.5s ease-out;
+    z-index: 300;
+    font-size: smaller;
+}
+.item{
+    display: flex;
+    padding: 20px;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin: 10px;
+    flex-grow: 1;
+    box-shadow:  5px 5px 3px   rgba(200, 200, 200, 0.2);
+}
+.projectlist{
+    grid-row-start: 2;
+    grid-row-end: 6;
+    grid-column-start: 1;
+}
+.LogoutView{
+    grid-row-start: 1;
+}
+.completedstats{
+    grid-row-start: 2;
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+.UserInfo img{
+    height: 100%;
+}
+
+.UserInfo{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align: center;
+}
+.ActiveTask{
+    grid-row-start: 3;
+    grid-row-end: 6;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    min-height: 50vh;
+    
+}
+.TaskCompletion{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+.TaskOverview{
+    grid-row-start: 1;
+    grid-row-end: 6;
+    grid-column-start: 4;
+    grid-column-end: 6;
+    padding-bottom: 0;
+
+}
+.DailyRoutine{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.doubleItemContainer{
+    display: flex;
+    flex-flow: column;
+}
+.maxHeight{
+    flex-grow: 1;
+}
+.display{
+    display: block;
+}
+
+
+.itemCentered{
+    align-items: center;
+}
+.lowpad{
+    padding: 5px;
+}
+.nopadbtm{
+    padding-bottom: 0;
+}
+.minHeight{
+    flex-grow: 0;
+}
+
+.scroll{
+    overflow: auto;
+}
+.sectiontitle{
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 0;
+}
+.slideright{
+    transform: translateX(50%);
+}
+
+
+@media(max-width:1000px){
+    .Container{
+    font-size: 0.9vw;
+    }
+}
+    @media(max-width:800px){
+    .ActiveTask,
+    .UserInfo
+    {
+        display: none;
+    }
+    .Container, .Subcontainer{
+        display: initial;
+    }
+    .Container{
+        font-size: initial;
+    }
+    .visible{
+        display: flex !important;
+    }
+    .hidden{
+        display: none;
+    }
+    .projectlist{
+        min-height: 50vh;
+    }
+}
+
+@media(max-height:700px){
+    .Container{
+        min-height: 700px;
+    }
+    .doubleRow{
+        grid-template-rows: 25% 70%;
+    }
+   
+    .maxHeight{
+        flex-grow: unset;
+    }
+}

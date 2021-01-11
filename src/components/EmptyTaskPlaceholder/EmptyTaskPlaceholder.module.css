@@ -1,0 +1,15 @@
+.EmptyTaskPlaceholder {
+    min-height: 50vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.EmptyTaskPlaceholder img{
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
+.placeholderContainer{
+    height: fit-content;
+    text-align: center;
+}

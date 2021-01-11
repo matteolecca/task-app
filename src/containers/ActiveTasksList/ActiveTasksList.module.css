@@ -1,0 +1,28 @@
+
+.ActiveTasksList{
+    width: 100%;
+    height: fit-content;
+    margin: 0 auto;
+}
+.ListContainer{
+    height: 90%;
+}
+.ActiveTasksList,
+.ListContainer{
+    overflow: auto;
+    border-radius: 10px;
+}
+.emptyPlaceholder img{
+    width: 50%;
+}
+.ActiveTasksContainer{
+    display: flex;
+}
+.timeContainer{
+    display: grid;
+    padding: 10px;
+}
+
+@media(max-width:800px){
+    
+}

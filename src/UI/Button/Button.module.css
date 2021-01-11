@@ -1,0 +1,27 @@
+.Button{
+    border-radius: 25px;
+    width: 90%;
+    margin: 15px auto;
+    text-align: center;
+    padding: 10px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    color: #969696;
+    transition: all 0.5s;
+}
+.Buttonname{
+    width: 80%;
+    margin: auto 10px;
+    text-align: center;
+}
+.selected{
+    background-color: #02720bd0;
+    color: #ffffff;
+}
+.Button:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+

@@ -1,0 +1,29 @@
+.Searchbar{
+    width: 50%;
+}
+.Searchinput{
+    float: right;
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+.Searchinput input{
+    width: 90%;
+    background-color: #f8f8f7;
+    border: none;
+    outline: none;
+    padding: 12px;
+    border-radius: 10px 0 0 10px;
+}
+.Iconcontainer{
+    padding: 6px;
+    border-radius:0 10px 10px 0;
+    background-color: green;
+}
+
+
+@media(max-width:650px){
+    .Searchbar{
+        display: none;
+    }
+}

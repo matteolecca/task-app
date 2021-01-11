@@ -1,0 +1,26 @@
+.Projectlist{
+    height: 100%;
+    width: 100%;
+}
+.ListContainer{
+    overflow: auto;
+    height: 80%;
+}
+.Projectlist,
+.ListContainer{
+    border-radius: 10px;
+}
+@media(max-width:800px){
+    .Projectlist{
+        max-height: 100vh;
+        height: fit-content;
+    }
+}
+@media(max-width:600px){
+    .Projectlist{
+        max-height: fit-content;
+        overflow: hidden;
+        grid-template-rows: 10% 15% auto;
+
+    }
+}

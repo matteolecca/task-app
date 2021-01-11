@@ -1,0 +1,13 @@
+.Linkrow{
+    width: 70%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+}
+.Linkrow a{
+    text-decoration: none;
+    color: #333333;
+}
+.Linkrow a:hover{
+    opacity: 0.7;
+}
