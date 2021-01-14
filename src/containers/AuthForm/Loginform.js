@@ -7,10 +7,10 @@ import Linkrow from '../../components/Forminput/Linkrow/Linkrow'
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import LoginContext from '../../hooks/login-hook'
 import { Redirect } from 'react-router'
+import { connect } from 'react-redux';
 const Loginform = props => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const {  result } = LoginContext()
 
     const loginHandler = (event) => {
         event.preventDefault()
@@ -18,6 +18,7 @@ const Loginform = props => {
     }
 
     useEffect(() => {
+        console.log("error", props.error)
         document.body.style.overflow = "auto"
     }, [props])
 
@@ -29,13 +30,24 @@ const Loginform = props => {
                     <Forminput onchange={setEmail} type="email" first placeholder="Email"><MailOutlineIcon /></Forminput>
                     <Forminput onchange={setPassword} type="password" last placeholder="Password"><VpnKeyIcon /></Forminput>
                     <Linkrow left="Forgot password?" linkleft="/frgtpassword" right="Signup" linkright="/signup" />
-                    <p className={classes.errorMessage}>{result.error}</p>
-                    <Button loading={result.loading} medium >Login</Button>
+                    <p className={classes.errorMessage}>{props.error}</p>
+                    <Button  loading={props.logging} medium >Login</Button>
                 </form >
             </div>
             :
             <Redirect to="/"></Redirect>)
     return content
 };
-
-export default Loginform;
+const State = state =>{
+    return {
+      logging : state.authReducer.logging,
+      error : state.authReducer.errorMessage
+    }
+  }
+  
+const Actions = dispatch =>{
+    return {
+        login : (user)=> dispatch({type : 'LOGIN', user : user})
+    }
+}
+export default connect(State, Actions) (Loginform);

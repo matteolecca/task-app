@@ -12,12 +12,17 @@ import DailyRoutine from '../Dailyroutine/DailyRoutine';
 import { connect } from 'react-redux';
 import Popup from '../../components/Popup/Popup';
 import * as context from '../../redux/context'
+import TasksTypesList from '../TasksTypesList/TasksTypesList';
+import FloatingButton from '../../components/FloatingButton/FloatingButton';
+import TaskOverview from '../TaskOverview/TaskOverview';
+import Transition from '../../components/Transition/transition';
 
 const Main = props => {
 
     const [menuOpened, openMenu] = useState(false)
     const [modalTaskOpened, openModalTask] = useState(false)
     const [popup, openit] = useState(false)
+    const [taskInfoOpen, openTaskInfo] = useState(false)
     const loadTasks = props.loadTasks
     useEffect(() => {
         loadTasks()
@@ -25,13 +30,13 @@ const Main = props => {
     }, [loadTasks])
 
     const sideOpenHandler = () => {
-        if (!menuOpened ) { document.body.style.overflow = "hidden" }
+        if (!menuOpened) { document.body.style.overflow = "hidden" }
         else { document.body.style.overflow = "scroll" }
         openMenu(!menuOpened)
     }
 
     const openpopup = () => {
-        console.log("opened")
+        console.log("Popup opened")
         openit(!popup)
     }
     const closeMenu = () => {
@@ -40,24 +45,26 @@ const Main = props => {
     }
 
     const modalHandler = () => {
-      
         openModalTask(!modalTaskOpened)
     }
 
     const slideRight = menuOpened ? classes.slideright : null
 
-    const dailyroutine = <div className={[classes.doubleItemContainer, classes.Dailyroutine].join(' ')}>
-        <h2 className={classes.sectiontitle}>Daily Routine</h2>
-        <div className={classes.item}>
-            <DailyRoutine />
-        </div>
-    </div>
+    const dailyroutine = () => {
+        const visible = props.context === context.ACTIVE_TASKS ? classes.visible : classes.hidden
+        return (<div className={[classes.doubleItemContainer, classes.Dailyroutine, visible].join(' ')}>
+            <h2 className={classes.sectiontitle}>Daily Routine</h2>
+            <div className={classes.item}>
+                <DailyRoutine />
+            </div>
+        </div>)
+    }
 
     const activetaskslist = () => {
         const visible = props.context === context.ACTIVE_TASKS_LIST ? classes.visible : classes.hidden
         return (
-            <div className={[classes.item, classes.projectlist, classes.nopadbtm, classes.display,visible].join(' ')}>
-                <ActiveTasksList modalHandler={modalHandler} />
+            <div className={[classes.item, classes.projectlist, classes.nopadbtm, classes.display, visible].join(' ')}>
+                <ActiveTasksList openInfo={openTaskInfo} modalHandler={modalHandler} />
             </div>)
     }
 
@@ -79,13 +86,11 @@ const Main = props => {
                 <div className={classes.item}>
                     <Projectlist />
                 </div>
-                <Logoutview logout={props.logout} />
+                <Logoutview />
             </div>)
     }
 
-    const user = <div className={[classes.item, classes.UserInfo, classes.lowpad, classes.display].join(' ')}>
-        <img alt="" src="icon.jpg" />
-    </div>
+
 
     const completedstats = () => {
         const visible = props.context === 'completedstats' ? classes.visible : classes.hidden
@@ -96,20 +101,30 @@ const Main = props => {
                     <Completedstats />
                 </div>
             </div>)
+    }
 
+    const tasksTypesList = () => {
+        const visible = props.context === context.TASKS_LIST ? classes.visible : classes.hidden
+        return (
+            <div className={[classes.item, classes.TaskTypeList, visible].join(' ')}>
+                <TasksTypesList />
+            </div>
+        )
     }
 
     return (
         <React.Fragment>
             <Topbar clicked={sideOpenHandler} />
-            <div onClick={() => openpopup(false)} className={[classes.Container, slideRight].join(' ')}>
-                {user}
-                {dailyroutine}
+            <div className={[classes.Container, slideRight].join(' ')}>
+                {/* {user} */}
+                {tasksTypesList()}
+                {dailyroutine()}
                 {activetaskslist()}
                 {activetasks()}
                 {taskslist()}
                 {completedstats()}
-                
+                <FloatingButton clicked={openModalTask} />
+                <TaskOverview opened={taskInfoOpen} close={openTaskInfo} />
             </div>
             <Sidedrawer close={closeMenu} clicked={sideOpenHandler} opened={menuOpened} />
             <Newtask close={closeMenu} clicked={modalHandler} opened={modalTaskOpened} />

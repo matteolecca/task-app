@@ -39,7 +39,6 @@ const NewTaskHook = () => {
         if(type === 'START_DATE') {
             const valid =  new Date(value) <= new Date(data.end_date)
             if(!valid) message = 'Task cannot start after it ends'
-            console.log(message)
             return {type : 'date', value : valid, message : message}
         }
         if(type === 'END_DATE') {

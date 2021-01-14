@@ -1,0 +1,78 @@
+.TaskOverview{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background-color: #ffffff;
+    border-radius: 10px 10px 0 0 ;
+    transition: all 0.5s;
+    z-index: 200;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    align-items: center;
+}
+
+.opened{
+    animation: open 0.7s forwards;
+}
+.closed{
+    animation: close 1s forwards;
+}
+.percentageContainer{
+    border-radius: 20px;
+    width: 60%;
+    margin: 0 auto;
+}
+.TaskInfo{
+    /* background-color: #ececec; */
+    display: flex;
+    align-items: center;  
+    justify-content: right;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    width: 95%;
+}
+.TaskInfo svg{
+    margin: 0 10px 0 10px;
+}
+.TaskInfo span{
+    font-size: larger;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.TaskOverview h1{
+    margin-left: 10px;
+}
+.TaskInfoContainer{
+    display: grid;
+    height: 90%;
+}
+
+@media(max-width:800px){
+    .TaskOverview{
+        display: grid;
+    }
+    .percentageContainer{
+        display: none;
+    }
+}
+@keyframes open{
+    0%{
+       transform: translateY(300%);
+    }
+    
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes close{
+    0%{
+        transform: translateY(0%);
+     }
+     100%{
+         transform: translateY(300%);
+     }
+}

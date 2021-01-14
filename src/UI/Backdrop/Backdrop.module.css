@@ -17,6 +17,9 @@
 
 }
 
+.Backdrop:hover{
+    cursor: pointer;
+}
 @keyframes close{
     0%{
         opacity: 1;
@@ -37,7 +40,7 @@
 }
 @media(max-width:600px){
     .Backdrop{
-        background-color: #ffffff;
-        opacity: 1;
+        /* background-color: #ffffff;
+        opacity: 1; */
     }
 }

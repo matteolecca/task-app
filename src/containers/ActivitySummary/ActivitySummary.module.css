@@ -36,11 +36,14 @@
 .scheduled{
     background-color: #FEF781FF !important;
 }
+@media(max-width:800px){
+    .ActivitySummary{
+        display: none;
+    }
+}
 
 @media(max-width:600px){
-    .ActivitySummary{
-        /* display: block; */
-    }
+   
     .ActivitySummary .ActivityContainer{
         margin: 0;
         padding: 15px;

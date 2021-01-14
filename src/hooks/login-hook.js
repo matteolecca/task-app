@@ -45,7 +45,7 @@ const LoginHook = () => {
         if (!token) dispatch({ type: 'ERROR' })
         else {
             const result = await axiosFetch(`/user/${token}`, 'GET')
-            console.log("result", result)
+            console.log("RESULT", result)
             if (result.error) dispatch({ type: 'ERROR', error: result.error })
             if (!result.data.logged) dispatch({ type: 'ERROR', error: result.error })
             else dispatch({ type: 'SUCCESS', success: result.data.user })

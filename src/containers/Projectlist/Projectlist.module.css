@@ -10,6 +10,9 @@
 .ListContainer{
     border-radius: 10px;
 }
+.TaskTypeTitle{
+    text-transform: capitalize;
+}
 @media(max-width:800px){
     .Projectlist{
         max-height: 100vh;

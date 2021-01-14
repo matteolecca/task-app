@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React  from 'react';
 import Forminput from '../../components/Forminput/Forminput';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import classes from './Newtask.module.css'
@@ -15,12 +15,9 @@ import newTaskContext from '../../hooks/new-task-hook'
 import { connect } from 'react-redux';
 
 const Newtask = props => {
-    const { setValue, task, valid, message, inputSelected, resetForm } = newTaskContext()
+    const { setValue, task, valid, message, resetForm } = newTaskContext()
     const opened = props.opened ? classes.opened : classes.closed
     
-    useEffect(()=>{
-        console.log(task)
-    }, [task])
 
     const handleSubmission = (e)=> {
         e.preventDefault()

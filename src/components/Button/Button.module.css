@@ -7,6 +7,12 @@
     outline: none;
     border: none;
 }
+.messageContainer{
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .Button:hover{
     cursor: pointer;
 }

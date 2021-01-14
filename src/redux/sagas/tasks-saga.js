@@ -6,9 +6,9 @@ export function* loadTasks(action) {
     console.log('SAGA LOAD TASK')
     const token = yield call([localStorage, 'getItem'], 'token')
     yield put({ type: actions.LOADING_TASKS })
-    const tasks = yield axiosFetchAll(token)
-    
-    yield put({
+    const tasks = yield axiosFetchAll(token )
+    if(tasks.error) yield put({type:actions.LOGGED_OUT})
+    else{yield put({
         type: actions.TASKS_LOADED, tasks: {
             active: tasks[0].data,
             passed: tasks[1].data,
@@ -16,7 +16,7 @@ export function* loadTasks(action) {
             completed : tasks[3].data,
             uncompleted : tasks[4].data,
         }
-    })
+    })}
 }
 
 export function* deleteTask(action) {
@@ -24,7 +24,7 @@ export function* deleteTask(action) {
     const token = yield call([localStorage, 'getItem'], 'token')
     yield put({ type: actions.LOADING_TASKS })
     const response = yield axiosFetch(`/deleteTask/${token}/${action.taskID}`, 'POST')
-    if (response.error) console.log("ERROR")
+    if (response.error) yield put({type:actions.LOGGED_OUT})
     yield put({ type: actions.SUCCESS, message : 'Task deleted!' })
     const tasks = yield axiosFetchAll(token)
     yield put({
@@ -41,7 +41,7 @@ export function* createTask(action) {
     const token = yield call([localStorage, 'getItem'], 'token')
     yield put({ type: actions.LOADING_TASKS })
     const result = yield axiosFetch(`/task/${token}`, 'POST', action.task)
-    if (result.error) console.log('Error')
+    if (result.error) yield put({type:actions.LOGGED_OUT})
     else {
         yield put({ type: actions.SUCCESS, message : 'Task inserted!' })
         const tasks = yield axiosFetchAll(token)
@@ -75,3 +75,22 @@ export function* completeTask(action) {
     }
 }
 
+
+export function* editTask(action) {
+    console.log('SAGA EDIT TASK')
+    const token = yield call([localStorage, 'getItem'], 'token')
+    yield put({ type: actions.LOADING_TASKS })
+    const result = yield axiosFetch(`/edit/${token}`, 'POST', action.task)
+    if (result.error) console.log('Error')
+    else {
+        yield put({ type: actions.SUCCESS, message : 'Task completed!' })
+        const tasks = yield axiosFetchAll(token)
+        yield put({
+            type: actions.TASKS_LOADED, tasks: {
+                active: tasks[0].data,
+                passed: tasks[1].data,
+                scheduled: tasks[2].data
+            }
+        })
+    }
+}

@@ -18,7 +18,7 @@ export async function axiosFetch(req, method, values) {
 }
 
 export async function axiosFetchAll( token) {
-  console.log("FETCHING ALL")
+  console.log("FETCHING ALL ")
   const ALL_TASKS = [
     `/tasks/${token}/active`,
     `/tasks/${token}/passed`,

@@ -28,7 +28,13 @@
   .Spinner.big::after{
     background: #ececec;
   }
-  
+
+  .Spinner.light::before{
+    background: #ffffff;
+  }
+  .Spinner.light::after{
+    background: #333333;
+  }
   .Spinner:before {
     width: 50%;
     height: 50%;

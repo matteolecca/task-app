@@ -15,9 +15,7 @@ const ActiveTasksList = props => {
         <div className={classes.ListContainer}>
             {props.tasks.map(project => {
                 return (
-                //     <Listitem 
-                //    height={project.hoursperday} project={project} activeTask key={project.ID} />
-                <ActiveListItem height={project.hoursperday} key={project.ID} project={project}/>
+                <ActiveListItem openInfo={props.openInfo} height={project.hoursperday} key={project.ID} project={project}/>
                 )
             })}
         </div>

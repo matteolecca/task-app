@@ -7,7 +7,6 @@ import EditIcon from '@material-ui/icons/Edit';
 import TimeIcon from '@material-ui/icons/AccessTime';
 import { connect } from 'react-redux';
 const Listitem = props => {
-    console.log(props.height)
     if (!props.project) {
         return <div>Loading...</div>
     }

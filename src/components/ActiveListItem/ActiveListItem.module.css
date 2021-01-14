@@ -5,6 +5,9 @@
     justify-content: space-between;
     flex: 1 0;
 }
+.ActiveListItem:hover{
+    cursor: pointer;
+}
 .ActiveContainer{
     overflow: hidden;
     display: grid;
@@ -17,15 +20,24 @@
     white-space: nowrap;
     margin: 10px 10px 0 10px;
     text-transform: capitalize;
-    font-weight: 700;
     margin-left: 10px;
 }
 .RadioContainer{
     align-self: center;
 }
 
-@media(max-width:500px){
+.TaskCompletion label{
+    float: right;
+    margin-top: 0;
+}
+@media(max-width:600px){
     .ActiveContainer label{
         font-size: smaller;
+    }
+    .ActiveContainer{
+        border-radius: 0;
+    }
+    .TaskCompletion label{
+        font-size: 0.7em !important ;
     }
 }

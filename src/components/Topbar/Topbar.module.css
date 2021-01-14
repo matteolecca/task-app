@@ -30,7 +30,6 @@
     display: none;
     border: none;
     outline: none;
-    background-color: #ffffff;
     transition: all 0.5s;
 }
 
@@ -62,9 +61,7 @@
         padding: 10px;
     }
     .Burger{
-        background-color: #ecebeb;
         padding: 0;
-        background-color: #ffffff;
         border-radius: 0.5em;
         padding: 5px;
     }

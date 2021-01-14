@@ -16,9 +16,6 @@ const Example = props => {
     props.onchange(date, props.ID)
     setStartDate(date)
   }
-  const dateSelectedHandler = (date) => {
-    props.onselect(date, props.ID)
-  }
 
   return (
     <div onClick={() => openDate(!opened)} className={[classes.Datepicker, dateType, last].join(' ')}>
@@ -35,42 +32,3 @@ export default Example
 
 
 
-
-// import 'date-fns';
-// import React from 'react';
-// import DateFnsUtils from '@date-io/date-fns';
-// import {
-//   MuiPickersUtilsProvider,
-//   KeyboardDatePicker,
-// } from '@material-ui/pickers';
-// import classes from './Datepicker.module.css'
-// const MaterialUIPickers = props => {
-//   const [selectedDate, setSelectedDate] = React.useState(new Date());
-
-//   const handleDateChange = (date) => {
-//     setSelectedDate(date);
-//   };
-
-//   return (
-//       <div className={classes.Datepicker}>
-//           <label>{props.label}</label>
-//     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-//         <KeyboardDatePicker
-//           className={props.type}
-//           disableToolbar
-//           variant="inline"
-//           format="MM/dd/yyyy"
-//           margin="normal"
-//           label=""
-//           value={selectedDate}
-//           onChange={handleDateChange}
-//           KeyboardButtonProps={{
-//             'aria-label': 'change date',
-//           }}
-//         />
-//     </MuiPickersUtilsProvider>
-//     </div>
-
-//   );
-// }
-// export default MaterialUIPickers

@@ -12,12 +12,16 @@ import { Provider } from 'react-redux'
 import tasksReducer from './redux/reducers/tasks-reducer'
 import operationReducer from './redux/reducers/operations-result-reducer'
 import contextReducer from './redux/reducers/app-context-reducer'
+import authReducer from './redux/reducers/auth-reducer'
+import taskInfoReducer from './redux/reducers/task-info-reducer'
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
   combineReducers({
     tasksReducer : tasksReducer,
     operationReducer : operationReducer,
-    contextReducer : contextReducer
+    contextReducer : contextReducer,
+    authReducer : authReducer,
+    taskInfoReducer : taskInfoReducer
   }),
   applyMiddleware(sagaMiddleware)
 )

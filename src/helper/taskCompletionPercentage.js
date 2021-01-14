@@ -4,6 +4,5 @@ export const  getCompletionPercentage = task =>{
         const endDate = task.end_date
         const diffStartEnd = (new Date(endDate) - new Date(startDate))/ MILLISECOND_IN_DAY
         const diffTodayEnd = (new Date() - new Date(startDate)) / MILLISECOND_IN_DAY
-        return (diffTodayEnd / diffStartEnd * 100)
-    
+        return (diffTodayEnd / diffStartEnd * 100).toFixed(0)
 }
