@@ -1,6 +1,7 @@
 .Login{
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
     /* display: grid;
     grid-template-columns: 50% 50%; */
 }
@@ -11,7 +12,7 @@
     align-items: center;
 }
 .Loginform img{
-    height: 300px;
+    height: 20vh;
     margin: 0 auto;
 }
 .imgContainer img{
@@ -24,22 +25,19 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    padding: 20px;
-    background-color: #ffffff;
+    /* background-color: var(--secondary-background); */
     border-radius: 20px;
     width: 60%;
     margin: 0 auto;
     text-align: center;
     display: grid;
 }
+
 .errorMessage{
     height: 1vh;
     color: rgb(255, 43, 43);
 }
-/* .Loginform svg{
-    height: 150px;
-    width: 150px;
-} */
+
 @media(max-width:700px){
     .Login{
         display: block;
@@ -48,10 +46,9 @@
         display: none;
     }
     .Loginform{
+        background-color: var(--main-background);
         width: 90%;
     }
-    .Login{
-        background-color: #ffffff;
-    }
+   
 }
 

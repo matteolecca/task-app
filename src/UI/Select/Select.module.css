@@ -1,0 +1,20 @@
+.Select{
+    width: 40%;
+    align-items: center;
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 20px auto ;
+    
+}
+.Select select{
+    background-color: var(--secondary-background);
+    width: 40%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(200, 200, 200, 0.7);
+    outline: none;
+
+}
+.Select select option{
+    background-color: red;
+}

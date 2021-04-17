@@ -2,17 +2,22 @@ import React from 'react';
 import classes from './Listitem.module.css'
 import LabelOutlinedIcon from '@material-ui/icons/LabelOutlined';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Calendar from '@material-ui/icons/EventBusy';
 import EditIcon from '@material-ui/icons/Edit';
+import Calendar from '@material-ui/icons/EventBusy';
+
 import TimeIcon from '@material-ui/icons/AccessTime';
 import { connect } from 'react-redux';
 const Listitem = props => {
-    if (!props.project) {
-        return <div>Loading...</div>
-    }
-    const { color, text, end_date, priority, hoursperday, ID } = props.project
+    const { deleteTask, project, setTask, edit } = props
+    const { color, text, end_date, priority, hoursperday, ID } = project
     const date = end_date ? new Date(end_date).toDateString() : null
     let height = {}
+
+    const selectTaskHandler = task =>{
+        setTask(project)
+        edit(true)
+    }
+    
     let taskType =
         <div style={{ color: color }} className={classes.Prioritycontainer}>
             <LabelOutlinedIcon style={{ color: color }} />
@@ -42,8 +47,8 @@ const Listitem = props => {
                         </div>
                     </div>
                     <div className={classes.Buttonscontainer}>
-                        <button onClick={() => props.deleteTask(ID)}><DeleteIcon style={{ color: color }} /></button>
-                        <button><EditIcon style={{ color: color }} /></button>
+                        <button onClick={() => deleteTask(ID)}><DeleteIcon style={{ color: color }} /></button>
+                        <button onClick={selectTaskHandler} ><EditIcon style={{ color: color }} /></button>
                     </div>
         </div>)
 };

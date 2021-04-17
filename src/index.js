@@ -1,37 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './css/index.css';
+import './css/datepicker.css';
+import './css/fonts.css';
+import './css/carousel.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
-import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { taskListener } from './redux/sagas/index'
 import { Provider } from 'react-redux'
-
 import tasksReducer from './redux/reducers/tasks-reducer'
 import operationReducer from './redux/reducers/operations-result-reducer'
 import contextReducer from './redux/reducers/app-context-reducer'
 import authReducer from './redux/reducers/auth-reducer'
 import taskInfoReducer from './redux/reducers/task-info-reducer'
+import appearenceReducer from './redux/reducers/app-appearence-reducer'
+
 const sagaMiddleware = createSagaMiddleware()
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
   combineReducers({
     tasksReducer : tasksReducer,
     operationReducer : operationReducer,
     contextReducer : contextReducer,
     authReducer : authReducer,
-    taskInfoReducer : taskInfoReducer
+    taskInfoReducer : taskInfoReducer,
+    appearenceReducer : appearenceReducer
   }),
-  applyMiddleware(sagaMiddleware)
+  composeEnhancers(
+    applyMiddleware(sagaMiddleware)
+  )
 )
 sagaMiddleware.run(taskListener)
-
 
   ReactDOM.render(
     <Provider store={store}>
     <BrowserRouter>
+    <React.StrictMode>
       <App />
+      </React.StrictMode>
     </BrowserRouter>
     </Provider>,
     document.getElementById('root')

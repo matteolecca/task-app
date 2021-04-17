@@ -7,14 +7,13 @@ import { connect } from 'react-redux';
 import SingleTaskSkeleton from '../../components/LoadingSkeleton/SingleTaskSkeleton';
 
 const ActiveTasks = props => {
-
-
-    if (props.loading) return <SingleTaskSkeleton />
-    if (props.tasks.length === 0) return <EmptyTaskPlaceholder type="active" />
+    const {loading, tasks} = props
+    if (loading) return <SingleTaskSkeleton />
+    if (tasks.length === 0) return <EmptyTaskPlaceholder type="active" />
 
     return (
         <Slider>
-            {props.tasks.map(p => {
+            {tasks.map(p => {
                 const percentage = parseInt(getCompletionPercentage(p))
                 return (
                     <Priorityproject
@@ -35,6 +34,5 @@ const State = state => {
         loading: state.tasksReducer.loading
     }
 }
-
 
 export default connect(State)(ActiveTasks);

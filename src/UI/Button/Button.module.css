@@ -1,27 +1,49 @@
 .Button{
-    border-radius: 25px;
-    width: 90%;
-    margin: 15px auto;
-    text-align: center;
-    padding: 10px;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    color: #969696;
-    transition: all 0.5s;
-}
-.Buttonname{
-    width: 80%;
-    margin: auto 10px;
-    text-align: center;
-}
-.selected{
-    background-color: #02720bd0;
+    min-height: 50px;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 65%;
     color: #ffffff;
+    background-color: var(--tertiary-background);
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.messageContainer{
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .Button:hover{
     cursor: pointer;
-    opacity: 0.6;
 }
-
+.light{
+    background-color: #ffffff;
+    color: #333333;
+}
+.dark{
+    background-color: #333333;
+    color: #ffffff;
+}
+.disabled{
+    background-color: #dbdbdb;
+    opacity: 1;
+}
+.disabled:hover{
+    cursor: not-allowed;
+}
+.Button:active{
+    color: #333333;
+}
+.red{
+    background-color: rgb(247, 75, 33);
+    color: #ffffff;
+}
+.green{
+    color: #ffffff;
+    background-color: rgb(145, 221, 58);
+}
 

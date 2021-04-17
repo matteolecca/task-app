@@ -3,8 +3,8 @@
     width: 100%;
 }
 .ListContainer{
-    overflow: auto;
     height: 80%;
+    overflow-x: scroll;
 }
 .Projectlist,
 .ListContainer{
@@ -15,15 +15,12 @@
 }
 @media(max-width:800px){
     .Projectlist{
-        max-height: 100vh;
         height: fit-content;
     }
 }
 @media(max-width:600px){
     .Projectlist{
         max-height: fit-content;
-        overflow: hidden;
         grid-template-rows: 10% 15% auto;
-
     }
 }

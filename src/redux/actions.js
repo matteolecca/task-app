@@ -16,10 +16,19 @@ export const CHECKING_AUTH = 'CHECKING_AUTH'
 export const LOGGED_IN = 'LOGGED_IN'
 export const LOGOUT = 'LOGOUT'
 export const LOGIN = 'LOGIN'
+export const SIGNUP = 'SIGNUP'
 export const LOGGING_IN = 'LOGGING_IN'
 export const ANIMATING_TASK_TYPE = 'ANIMATING_TASK_TYPE'
 export const ERROR_AUTH = 'ERROR_AUTH'
 export const TASK_SELECTED = 'TASK_SELECTED'
+export const UPDATE_USER = 'UPDATE_USER'
+export const UPDATING_USER = 'UPDATING_USER'
+export const USER_UPDATED = 'USER_UPDATED'
+export const SET_APPEARENCE = 'SET_APPEARENCE'
+export const RELOAD_TASKS = 'RELOAD_TASKS'
+
+
+
 
 
 

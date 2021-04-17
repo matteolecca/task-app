@@ -1,0 +1,23 @@
+
+.UserPage img {
+    display: flex;
+    margin: 50px auto;
+    width: 300px;
+}
+
+.UserDataContainer{
+    width: 90%;
+    margin: 100px auto;
+}
+.LogoutContainer{
+
+}
+@media screen and (max-width : 768px){
+    .UserPage img{
+        width: 50%;
+        margin: 50px auto;
+    }
+    .UserDataContainer{
+        margin: 0 auto 100px auto;
+    }
+}

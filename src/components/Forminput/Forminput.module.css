@@ -1,8 +1,8 @@
 .Forminput{
     display: block;
-    width: 70%;
+    width: 90%;
+    min-height: 50px;
     margin: 0 auto;
-    padding: 10px;
     border: 1px solid rgba(200, 200, 200, 0.7);
     display: inline-flex;
     transition: all 0.5s;
@@ -10,29 +10,32 @@
     transition: all 0.5s;
 }
 .Forminput input{
+    width: 100%;
+    background-color: inherit !important;
     outline: none;
     border: none;
-    width: 100%;
     font-weight: 400;
     line-height: 1.1876em;
     letter-spacing: 0.00938em;
-    font-size: 1rem;
     box-sizing: border-box;
     min-height: 2em;
+    color: var(--main-color);
+}
+
+.Forminput:focus-within{
+    border-color: #333;
 }
 .invalid{
-    border: 1px solid red;
+    border: 1px solid var(--error-color);
 }
 .Forminput svg{
     height: 100%;
-    color: #333333;
+    color: var(--main-color);
+    margin: 0 10px;
 }
 .first{
     border-radius: 5px 5px 0 0 ;
 }
 .last{
     border-radius: 0 0 5px 5px;
-}
-.Forminput:focus{
-    background-color: #bbbbbb;
 }

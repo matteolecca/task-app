@@ -1,0 +1,8 @@
+.TransparentButton{
+    background-color: inherit;
+    transition: all 0.5s;
+}
+.TransparentButton:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}

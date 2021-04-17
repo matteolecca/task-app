@@ -1,52 +1,50 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Logoutview from '../../components/Logout/Logoutview';
 import Completedstats from '../CompletedStats/CompletedStats';
 import Projectlist from '../Projectlist/Projectlist';
 import classes from './Main.module.css'
-import Topbar from '../../components/Topbar/Topbar';
 import Sidedrawer from '../sidedrawer/Sidedrawer';
 import Newtask from '../Newtask/Newtask';
 import ActiveTasks from '../ActiveTasks/ActiveTasks';
 import ActiveTasksList from '../ActiveTasksList/ActiveTasksList';
 import DailyRoutine from '../Dailyroutine/DailyRoutine';
 import { connect } from 'react-redux';
-import Popup from '../../components/Popup/Popup';
 import * as context from '../../redux/context'
 import TasksTypesList from '../TasksTypesList/TasksTypesList';
-import FloatingButton from '../../components/FloatingButton/FloatingButton';
+import FloatingButton from '../../UI/FloatingButton/FloatingButton';
 import TaskOverview from '../TaskOverview/TaskOverview';
-import Transition from '../../components/Transition/transition';
+import SwitchButton from '../../components/SwitchButton/SwitchButtonsContainer';
 
 const Main = props => {
-
-    const [menuOpened, openMenu] = useState(false)
     const [modalTaskOpened, openModalTask] = useState(false)
-    const [popup, openit] = useState(false)
     const [taskInfoOpen, openTaskInfo] = useState(false)
-    const loadTasks = props.loadTasks
+    const [taskToEdit, setTaskToEdit] = useState(null)
+    const { menuOpened, openMenu, loadTasks, } = props
+    
     useEffect(() => {
-        loadTasks()
-        document.body.style.overflow = "auto"
-    }, [loadTasks])
+            loadTasks()
+    }, [loadTasks, ])
+
+    useEffect(() => {
+        if (modalTaskOpened) { document.body.style.overflow = "hidden" }
+        else { document.body.style.overflow = "scroll" }
+    }, [modalTaskOpened])
 
     const sideOpenHandler = () => {
-        if (!menuOpened) { document.body.style.overflow = "hidden" }
-        else { document.body.style.overflow = "scroll" }
         openMenu(!menuOpened)
     }
 
-    const openpopup = () => {
-        console.log("Popup opened")
-        openit(!popup)
-    }
     const closeMenu = () => {
         openMenu(false)
         openModalTask(false)
     }
 
     const modalHandler = () => {
-        openModalTask(!modalTaskOpened)
+         openModalTask(!modalTaskOpened)
     }
+    const setTaskToEditHandler = (useCallback(task =>{
+        setTaskToEdit(task)
+    },[]))
 
     const slideRight = menuOpened ? classes.slideright : null
 
@@ -82,15 +80,15 @@ const Main = props => {
     const taskslist = () => {
         const visible = props.context === context.TASKS_LIST ? classes.visible : classes.hidden
         return (
-            <div className={[classes.TaskOverview, classes.scroll, classes.nopadbtm, classes.doubleItemContainer, visible].join(' ')}>
-                <div className={classes.item}>
-                    <Projectlist />
+            <div className={[classes.TaskOverview, classes.nopadbtm, classes.doubleItemContainer, visible].join(' ')}>
+                <div className={[classes.item, classes.scroll].join(' ')}>
+                    <Projectlist setTask={setTaskToEditHandler} edit={modalHandler}/>
                 </div>
-                <Logoutview />
+                <div className={classes.hidden}>
+                    <Logoutview />
+                </div>
             </div>)
     }
-
-
 
     const completedstats = () => {
         const visible = props.context === 'completedstats' ? classes.visible : classes.hidden
@@ -112,23 +110,25 @@ const Main = props => {
         )
     }
 
+
+
     return (
         <React.Fragment>
-            <Topbar clicked={sideOpenHandler} />
             <div className={[classes.Container, slideRight].join(' ')}>
-                {/* {user} */}
                 {tasksTypesList()}
                 {dailyroutine()}
                 {activetaskslist()}
                 {activetasks()}
                 {taskslist()}
                 {completedstats()}
-                <FloatingButton clicked={openModalTask} />
-                <TaskOverview opened={taskInfoOpen} close={openTaskInfo} />
+                <div className={[classes.buttonContainer, classes.hidden].join(' ')}>
+                    <SwitchButton handleLight={props.handleLight} />
+                </div>
             </div>
-            <Sidedrawer close={closeMenu} clicked={sideOpenHandler} opened={menuOpened} />
-            <Newtask close={closeMenu} clicked={modalHandler} opened={modalTaskOpened} />
-            <Popup />
+            <TaskOverview setTask={setTaskToEditHandler} edit={modalHandler} opened={taskInfoOpen} close={openTaskInfo} />
+            <Sidedrawer close={closeMenu} clicked={sideOpenHandler} opened={props.menuOpened} />
+            <Newtask resetTask={setTaskToEditHandler} task={taskToEdit} close={closeMenu} opened={modalTaskOpened} />
+            <FloatingButton onclick={modalHandler}/>
         </React.Fragment>
     );
 };

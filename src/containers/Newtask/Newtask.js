@@ -1,69 +1,95 @@
-import React  from 'react';
+import React, {   useEffect, useState } from 'react';
 import Forminput from '../../components/Forminput/Forminput';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import classes from './Newtask.module.css'
-import Datepicker from '../../components/Datepicker/Datepicker'
+import Datepicker from '../Datepicker/DatepickerContainer'
 import Task from '@material-ui/icons/AssignmentTurnedInOutlined';
 import Colorbar from '../../components/Colorbar/Colorbar';
-import Button from '../../components/Button/Button';
-import Select from '../../components/Select/Select';
+import Button from '../../UI/Button/Button';
+import Select from '../../UI/Select/Select';
 import StartdateIcon from '@material-ui/icons/Today';
-import EnddateIcon from '@material-ui/icons/EventBusy';
 import CancelIcon from '@material-ui/icons/Cancel';
 import Transition from '../../components/Transition/transition';
 import newTaskContext from '../../hooks/new-task-hook'
 import { connect } from 'react-redux';
-
+import moment from 'moment'
+import logoDark from '../../images/app-logo-dark.png'
+import logo from '../../images/app-logo.png'
 const Newtask = props => {
-    const { setValue, task, valid, message, resetForm } = newTaskContext()
-    const opened = props.opened ? classes.opened : classes.closed
-    
+    const {appearenceStyle, createTask, editTask, close, opened} = props
+    const { setValue, task,setTask, validText, validDate, message, resetForm } = newTaskContext(props.task)
+    const [startSelected, selectStart] = useState(false)
+    const openedClass = opened ? classes.opened : classes.closed
+   
+    useEffect(()=>{
+        if(props.task){
+            setTask(props.task)
+            selectStart(props.task.start_date)
+        }
+    },[props.task, setTask])
 
-    const handleSubmission = (e)=> {
-        e.preventDefault()
-        props.close()
-        props.createTask(task)
+    const handleSubmission = () => {
+        close()
+        if(!props.task)createTask(task) 
+        else {
+            const taskCopy = {...task}
+            taskCopy.start_date = moment(task.start_date).format('YYYY-MM-DD')
+            taskCopy.end_date = moment(task.end_date).format('YYYY-MM-DD')
+            editTask(taskCopy)
+        }
         resetForm()
+        props.resetTask(null)
     }
-
-    const handleValueChange = (value, type) =>{
-       setValue(value, type)
-    }
-
-    const handleSelected =  (e) =>{
+    const handleClosing =()=>{
+        resetForm()
+        props.resetTask(null)
+        close()
         
     }
+
+    const handleValueChange = (value, type,ID) => {
+        if(type=== 'START_DATE')selectStart(true)
+        setValue(value, type)
+    }
+
+    const handleSelected = (e) => {
+        e.preventDefault()
+    }
     return (
-        <Transition
-        transition={props.opened}>
-        <React.Fragment>
-            <div className={[classes.NewtaskContainer, opened].join(' ')}>
-                <form onSubmit={(e)=>handleSubmission(e)}>
-                    <div onClick={props.clicked} className={classes.closeButton}>
-                        <CancelIcon />
+
+            <Transition
+                transition={opened}>
+                <div className={[classes.NewtaskContainer, openedClass].join(' ')}>
+                    <div onClick={handleClosing} className={classes.closeButtonContainer}>
+                        <CancelIcon className={classes.closeButton} />
                     </div>
-                    <img alt="" className={classes.logo} src="app-logo.png"></img>
-                    <Forminput valid={valid} onselect={handleSelected} onchange={handleValueChange} ID="TEXT" first type="text" placeholder="Task name">
-                        <Task />
-                    </Forminput>
-                    <Datepicker onselect={handleSelected} ID="START_DATE" onchange={handleValueChange} placeholder="Start date" type="start" label="Start date" ><StartdateIcon /></Datepicker>
-                    <Datepicker onselect={handleSelected} ID="END_DATE" onchange={handleValueChange} last placeholder="End date" type="end" label="End date" ><EnddateIcon /></Datepicker>
-                    <Select onselect={handleSelected} ID="PRIORITY" onchange={handleValueChange}/>
-                    <Colorbar ID="COLOR" onchange={handleValueChange}/>
-                    <p className={classes.errorMessage}>{message}</p>
-                    <Button disabled={!valid} medium>Create Task</Button>
-                </form>
-               
-            </div>
-            <Backdrop clicked={props.close} opened={props.opened } />
-        </React.Fragment>
-         </Transition>
+                    <form >
+                        <img alt="" className={classes.logo} src={appearenceStyle === 'light' ? logo : logoDark}></img>
+                        <Forminput value={task.text} valid={validText} onselect={handleSelected} onchange={handleValueChange} ID="TEXT" first type="text" placeholder="Task name">
+                            <Task />
+                        </Forminput>
+                        <Datepicker date={task.start_date} disabled={false}  mindate={task.start_date}onselect={handleSelected} ID="START_DATE" onchange={handleValueChange} placeholder="Start date" type="start" label="Start date" ><StartdateIcon /></Datepicker>
+                        <Datepicker date={task.end_date} disabled={!startSelected}  mindate={task.start_date} last onselect={handleSelected} ID="END_DATE" onchange={handleValueChange} placeholder="End date" type="end" label="End date" ><StartdateIcon /></Datepicker>
+                        <Select value={task.priority} title="Priority" onselect={handleSelected} ID="PRIORITY" onchange={handleValueChange} />
+                        <Colorbar ID="COLOR" onchange={handleValueChange} />
+                        <p className={classes.errorMessage}>{message}</p>
+                        <Button onclick={handleSubmission} disabled={!validText || !validDate} medium>{props.task ? 'Edit Task' : 'Create Task'}</Button>
+                    </form>
+                </div>
+                <Backdrop clicked={handleClosing} opened={opened} />
+            </Transition>
     );
 };
-const Actions = dispatch => {
+const State = state =>{
     return {
-        reloadTasks : () => dispatch({type:'LOAD_TASKS'}) ,
-        createTask : (task) => dispatch({type:'CREATE_TASK', task : task})
+        appearenceStyle : state.appearenceReducer.style
     }
 }
-export default connect(null,Actions)(Newtask);
+const Actions = dispatch => {
+    return {
+        reloadTasks: () => dispatch({ type: 'LOAD_TASKS' }),
+        createTask: (task) => dispatch({ type: 'CREATE_TASK', task: task }),
+        editTask: (task) => dispatch({ type: 'EDIT_TASK', task: task })
+    }
+}
+export default connect(State, Actions)(Newtask);

@@ -1,64 +1,77 @@
-import React, { useEffect  } from 'react';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import mode from './css/App.module.css';
 import Login from './containers/AuthForm/Loginform'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import Signup from './containers/AuthForm/Signupform';
-import LoginContext from './hooks/login-hook'
 import Main from './containers/Main/Main'
 import Loadingpage from './components/Loadingpage/Loadingpage';
 import { connect } from 'react-redux';
 import * as actions from './redux/actions'
+import UserPage from './containers/UserPage/UserPage';
+import Topbar from './components/Topbar/Topbar';
+import Popup from './components/Popup/Popup';
 
 function App(props) {
-  const { checkauth, checkingAuth, auth, login, logout } = LoginContext()
+  const [menuOpened, openMenu] = useState(false)
+  const {checkAuth, appearenceStyle, logged, checking} = props
 
-  const checkAuthoriz = props.checkAuth
-  const logged = props.logged
-  useEffect(()=>{
-    if(!logged ){
-      checkAuthoriz()
+  useEffect(() => {
+    const backgroundColor = appearenceStyle === 'light' ? 'background-color : #ffffff;' : 'background-color : #333333;'
+    document.body.style = backgroundColor
+    if (!logged) {
+      checkAuth()
     }
-  },[checkAuthoriz,logged])
-
-  console.log("TOKEN EXPIRED", props.logged)
-  console.log("LOADING", props.checking)
+  }, [checkAuth, logged, appearenceStyle])
+  
 
   return (
-    <div className="App">
+    <div className={mode[appearenceStyle]}>
       <Switch>
         <Route path="/login">
-        {!props.checking ? 
-         (props.logged ?  <Redirect to="/"/> : <Login auth={props.logged}/>) : 
-         <Loadingpage/>
+          {!checking ?
+            (props.logged ? <Redirect to="/" /> : <Login auth={props.logged} />) :
+            <Loadingpage />
           }
         </Route>
         <Route path="/signup">
-        {!props.checking ? 
-         (props.logged ?  <Main logout={logout}/> : <Signup/>) : 
-         <Loadingpage/>
+          {!checking ?
+            (props.logged ? <Redirect to="/" /> : <Signup />) :
+            <Loadingpage />
           }
         </Route>
+        <Route path="/account">
+          {!checking ?
+            (props.logged ? <UserPage /> : <Redirect to="/login" />) :
+            <Loadingpage />
+          }
+         </Route>
         <Route path="/">
-          {!props.checking ? 
-         (props.logged ?  <Main logout={logout} /> : <Redirect to="/login"/>) : 
-         <Loadingpage/>
+          {!checking ?
+            props.logged ? 
+            <React.Fragment>
+              <Topbar clicked={openMenu}  />
+              <Main  menuOpened={menuOpened} openMenu={openMenu} />
+              </React.Fragment> : <Redirect to="/login" /> :
+            <Loadingpage />
           }
         </Route>
       </Switch>
+      <Popup />
     </div>
   )
 }
 
-const State = state =>{
+const State = state => {
   return {
-    logged : state.authReducer.logged,
-    checking : state.authReducer.checking,
+    logged: state.authReducer.logged,
+    checking: state.authReducer.checking,
+    appearenceStyle : state.appearenceReducer.style
   }
 }
 
-const Actions = dispatch =>{
-  return{
-    checkAuth : ()=>dispatch({type : actions.CHECK_AUTH })
+const Actions = dispatch => {
+  return {
+    checkAuth: () => dispatch({ type: actions.CHECK_AUTH })
   }
 }
 export default connect(State, Actions)(App);

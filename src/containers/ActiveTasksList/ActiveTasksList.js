@@ -4,18 +4,15 @@ import Titlebar from '../../components/Titlebar/Titlebar';
 import EmptyTaskPlaceholder from '../../components/EmptyTaskPlaceholder/EmptyTaskPlaceholder';
 import { connect } from 'react-redux';
 import ListSkeleton from '../../components/LoadingSkeleton/ListSkeleton';
-import ActiveListItem from '../../components/ActiveListItem/ActiveListItem';
+import ActiveListItem from './ActiveListItem/ActiveListItem';
+
 const ActiveTasksList = props => {
-
-    const refresh = () => {
-        props.reloadTasks()
-    }
-
+    const { tasks, loading, openInfo, modalHandler } = props
     const tasksComponent =
         <div className={classes.ListContainer}>
-            {props.tasks.map(project => {
+            {tasks.map(project => {
                 return (
-                <ActiveListItem openInfo={props.openInfo} height={project.hoursperday} key={project.ID} project={project}/>
+                <ActiveListItem openInfo={openInfo}  key={project.ID} project={project}/>
                 )
             })}
         </div>
@@ -24,9 +21,9 @@ const ActiveTasksList = props => {
 
     return (
         <div className={classes.ActiveTasksList}>
-            <Titlebar loading={props.loading} refresh={refresh} modalHandler={props.modalHandler} />
-            {props.loading ? <ListSkeleton count={props.tasks.length} /> :
-                props.tasks.length === 0 ? tasksPlaceholder : tasksComponent}
+            <Titlebar modalHandler={modalHandler} />
+            {loading ? <ListSkeleton count={tasks.length} /> :
+                tasks.length === 0 ? tasksPlaceholder : tasksComponent}
         </div>
     );
 };
@@ -38,11 +35,6 @@ const State = state => {
     }
 }
 
-const Actions = dispatch => {
-    return {
-        reloadTasks: () => dispatch({ type: 'LOAD_TASKS' })
-    }
-}
 
 
-export default connect(State, Actions)(ActiveTasksList);
+export default connect(State)(ActiveTasksList);

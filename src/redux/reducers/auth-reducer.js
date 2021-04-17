@@ -3,7 +3,9 @@ const initialState = {
     logged: false,
     checking: false,
     logging: false,
-    errorMessage : ''
+    updating: false,
+    errorMessage: '',
+    user: {}
 }
 
 
@@ -16,12 +18,18 @@ export default function tasks(state = initialState, action) {
             return { ...state, logged: false, checking: false }
         case actions.LOGGED_IN:
             console.log("LOGGED IN")
-            return { ...state, logged: true, checking: false, logging: false }
+            return { ...state, logged: true, checking: false, logging: false, user: action.user }
         case actions.LOGGING_IN:
             console.log("LOGGED IN")
-            return { ...state, logging : true }
+            return { ...state, logging: true }
         case actions.ERROR_AUTH:
-            return {logging : false, errorMessage : action.message}
+            return { ...state, logging: false, errorMessage: action.message }
+        case actions.UPDATING_USER:
+            return { ...state, updating: true }
+        case actions.USER_UPDATED:
+            const user = {...state.user}
+            if(action.valueType === 'hoursperday')user.hoursperday = parseInt(action.value)
+            return { ...state, updating: false, user : user }
         default:
             return state
     }

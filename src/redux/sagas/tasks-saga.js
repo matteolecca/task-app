@@ -56,6 +56,7 @@ export function* createTask(action) {
 }
 
 
+
 export function* completeTask(action) {
     console.log('SAGA SET COMPLETED TASK')
     const token = yield call([localStorage, 'getItem'], 'token')
@@ -82,9 +83,12 @@ export function* editTask(action) {
     yield put({ type: actions.LOADING_TASKS })
     const result = yield axiosFetch(`/edit/${token}`, 'POST', action.task)
     if (result.error) console.log('Error')
-    else {
-        yield put({ type: actions.SUCCESS, message : 'Task completed!' })
-        const tasks = yield axiosFetchAll(token)
+    else yield put({type: actions.RELOAD_TASKS, token : token, message : 'Task Updated'})
+}
+
+export function* reloadTasks(action){
+    yield put({ type: actions.SUCCESS, message : action.message })
+        const tasks = yield axiosFetchAll(action.token)
         yield put({
             type: actions.TASKS_LOADED, tasks: {
                 active: tasks[0].data,
@@ -92,5 +96,4 @@ export function* editTask(action) {
                 scheduled: tasks[2].data
             }
         })
-    }
 }

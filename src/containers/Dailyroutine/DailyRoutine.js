@@ -9,21 +9,21 @@ const DailyRoutine = props => {
         <div className={classes.DailyRoutine}>
             <div className={classes.RoutineContainer}>
                 <div className={classes.IconContainer}>
-                    <DailyIcon style={{ backgroundColor: '#333333', color: '#ffffff' }} />
+                    <DailyIcon  />
                     <label>Daily working hours</label>
                 </div>
                 <div className={classes.DailyDataContainer}>
-                    <label><strong>5</strong></label>
+                    <label><strong>{props.hpd}</strong></label>
                 </div>
             </div>
             <div className={classes.RoutineContainer}>
                 <div className={classes.IconContainer}>
-                    <TaskIcon style={{ backgroundColor: '#333333', color: '#ffffff' }} />
+                    <TaskIcon  />
                     <label>Active tasks</label>
                 </div>
                 <div className={classes.DailyDataContainer}>
                     <label>
-                        {props.loading ?  <Spinner /> : <strong>{props.tasksCount}</strong>}
+                        {props.loading ?  <Spinner main/> : <strong>{props.tasksCount}</strong>}
                     </label>
                 </div>
             </div>
@@ -34,7 +34,8 @@ const DailyRoutine = props => {
 const State = state => {
     return {
         tasksCount: state.tasksReducer.tasks.active.length,
-        loading: state.tasksReducer.loading
+        loading: state.tasksReducer.loading,
+        hpd : state.authReducer.user.hoursperday
     }
 }
 

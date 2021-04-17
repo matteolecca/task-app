@@ -1,5 +1,7 @@
 .Logoutview{
-    margin: 10px;
+    width:90%;
+    height: fit-content;
+    margin: 10px auto;
     border-radius: 10px;
     background-color: rgb(237, 108, 89);
     display: flex;
@@ -35,7 +37,6 @@
 
 @media(max-width:800px){
     .Logoutview{
-        display:none;
     }
 }
 

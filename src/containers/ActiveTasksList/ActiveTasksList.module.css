@@ -1,15 +1,15 @@
 
 .ActiveTasksList{
     width: 100%;
-    height: fit-content;
+    height: 100%;
     margin: 0 auto;
 }
 .ListContainer{
-    height: 90%;
+    height: 50vh;
+    overflow: scroll;
 }
 .ActiveTasksList,
 .ListContainer{
-    overflow: auto;
     border-radius: 10px;
 }
 .emptyPlaceholder img{
@@ -27,5 +27,8 @@
     .ActiveTasksList,
     .ListContainer{
         border-radius: 0;
+    }
+    .ListContainer{
+        height: fit-content;
     }
 }

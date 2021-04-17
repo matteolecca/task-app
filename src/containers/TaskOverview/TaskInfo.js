@@ -4,7 +4,7 @@ const TaskInfo = props => {
     return (
         <div className={classes.TaskInfo}>
             {props.children}
-            <span>{props.value}</span>
+            <label>{props.value}</label>
         </div>
     );
 };

@@ -31,7 +31,8 @@
 .Listitem svg,
 .Listitem label
 {
-    filter: brightness(40%);    
+    color: var(--main-color) !important;
+    /* filter: brightness(40%);     */
 }
 .desc{
     font-weight: 400;

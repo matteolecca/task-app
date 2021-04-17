@@ -1,10 +1,11 @@
 .Popup{
-    position: absolute;
+    position: fixed;
     top: 10px;
     left: 50%;
+    min-width: 50vw;
     transform: translate(-50%,-200%);
-    background-color: #333333;
-    color: #ffffff;
+    background-color: var(--main-color) !important;
+    color: var(--main-background) !important;
     border-radius: 10px;
     display: grid;
     grid-template-rows: 10%90%;
@@ -15,6 +16,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--main-background) !important;
+
 }
 .closeIcon{
     padding: 5px 0  0 5px;
@@ -74,10 +77,3 @@
     }
 }
 
-@media(max-width:600px){
-    .Popup{
-        width: 90%;
-        top: 0px;
-        border-radius: 0 0 5px 5px;
-    }
-}

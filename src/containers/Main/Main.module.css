@@ -1,164 +1,213 @@
-
-.Container{
+.Container {
     display: grid;
     box-sizing: border-box;
-    /* max-height: 90vh; */
     height: 90vh;
-    grid-template-columns: 35% 15% 10% 20% 20% ;
-    grid-template-rows: 30% 15% 15% 20% 20%;
+    grid-template-columns: 35% 15% 10% 20% 20%;
+    grid-template-rows: 30% 15% 15% 30% 10%;
     transition: all 0.5s ease-out;
     z-index: 300;
-    font-size: smaller;
+    animation: enter 2s forwards;
+    opacity: 0;
 }
-.item{
+
+.item {
     display: flex;
-    padding: 20px;
-    overflow: hidden;
-    background-color: #ffffff;
+    padding: 10px;
+    background-color: var(--main-background);
     border-radius: 20px;
     margin: 10px;
     flex-grow: 1;
-    box-shadow:  5px 5px 3px   rgba(200, 200, 200, 0.2);
+    box-shadow: 0 0 40px 5px var(--shadow-color);
+    overflow: hidden;
 }
-.projectlist{
+
+.projectlist {
     grid-row-start: 2;
     grid-row-end: 6;
     grid-column-start: 1;
 }
-.LogoutView{
+
+.LogoutView {
     grid-row-start: 1;
 }
-.completedstats{
+
+.completedstats {
     grid-row-start: 2;
     grid-column-start: 4;
     grid-column-end: 5;
 }
-.TaskTypeList{
+
+.TaskTypeList {
     display: none;
 }
-.UserInfo img{
+.buttonContainer{
+    display: flex;
+    background-color: var(--secondary-background);
+    grid-column-start: 2;
+    grid-column-end: 4;
+    border-radius: 10px;
+    margin: 10px;
+}
+.buttonContainer button{
+    flex: 1;
+}
+.UserInfo img {
     height: 100%;
 }
 
-.UserInfo{
+.UserInfo {
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column-start: 2;
     grid-column-end: 3;
     text-align: center;
 }
-.ActiveTask{
+
+.ActiveTask {
     grid-row-start: 3;
     grid-row-end: 6;
     grid-column-start: 2;
     grid-column-end: 4;
     min-height: 50vh;
-        
 }
-.TaskCompletion{
+
+.TaskCompletion {
     grid-row-start: 1;
     grid-row-end: 2;
     grid-column-start: 2;
     grid-column-end: 4;
 }
-.TaskOverview{
+
+.TaskOverview {
     grid-row-start: 1;
     grid-row-end: 6;
     grid-column-start: 4;
     grid-column-end: 6;
     padding-bottom: 0;
-
 }
-.Dailyroutine{
+
+.logoutView {
+    display: flex;
+    align-items: center;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    grid-column-start: 4;
+    grid-column-end: 6;
+}
+
+.Dailyroutine {
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
 }
 
-.doubleItemContainer{
+
+.doubleItemContainer {
     display: flex;
     flex-flow: column;
 }
-.maxHeight{
+
+.maxHeight {
     flex-grow: 1;
 }
-.display{
+
+.display {
     display: block;
 }
 
-
-.itemCentered{
+.itemCentered {
     align-items: center;
 }
-.lowpad{
+
+.lowpad {
     padding: 5px;
 }
-.nopadbtm{
+
+.nopadbtm {
     padding-bottom: 0;
 }
-.minHeight{
+
+.minHeight {
     flex-grow: 0;
 }
 
-.scroll{
-    overflow: auto;
+.scroll {
+    height: 95%;
 }
-.sectiontitle{
+
+.sectiontitle {
     text-align: left;
     margin-left: 20px;
     margin-bottom: 0;
 }
-.slideright{
+
+.slideright {
     transform: translateX(50%);
 }
 
-
-@media(max-width:1000px){
-    .Container{
-    font-size: 0.9vw;
+@media(max-width:1000px) {
+    .Container {
+        min-width: 1000px;
+        font-size: smaller;
     }
 }
-    @media(max-width:800px){
-    .ActiveTask,
-    .UserInfo
-    {
+
+@media(max-width:800px) {
+    .item{
+        box-shadow: none;
+    }
+    .ActiveTask, .UserInfo {
         display: none;
     }
-    .Container, .Subcontainer{
+    .Container, .Subcontainer {
         display: initial;
     }
-    .Container{
-        font-size: initial;
-    }
-    .visible{
+    .visible {
         display: flex !important;
     }
-    .hidden{
+    .hidden {
         display: none;
     }
-    .projectlist{
-        min-height: 50vh;
+    .projectlist {
+        min-height: 60vh;
+        height: inherit;
     }
+    .TaskTypeList{
+        background-color: var(--secondary-background);
+    }
+    
 }
 
-@media(max-width:600px){
-    .item.projectlist{
-        background-color: #ececec;
+@media(max-width:768px) {
+    .item.projectlist {
         box-shadow: none;
-        border-radius: 0;
-        padding: 0;
+        height: fit-content;
     }
 }
 
-@media(max-height:700px){
-    .Container{
+@media(max-width:330px) {
+    .item {
+        min-width: 330px;
+    }
+}
+
+@media(max-height:700px) {
+    .Container {
         min-height: 700px;
     }
-    .doubleRow{
+    .doubleRow {
         grid-template-rows: 25% 70%;
     }
-   
-    .maxHeight{
+    .maxHeight {
         flex-grow: unset;
+    }
+}
+
+@keyframes enter {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

@@ -1,6 +1,6 @@
 .Priorityproject{
    display: grid;
-   grid-template-rows: 15% 10% 60% 15%;
+   grid-template-rows: 15%  70% 15%;
    text-align: center;
 }
 .Priorityproject:hover{
@@ -8,6 +8,9 @@
 }
 .projectdesc{
     font-weight: 500;
+    margin-bottom: 5em;
+    color: var(--main-color);
+    text-transform: capitalize;
 }
 .projectdate{
     width: 100%;
@@ -28,25 +31,8 @@
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    font-size: 2.2em;
     color: #555;
     user-select: none;
-}
-
-@media(max-width:1000px){
-    .indicator{
-        font-size: 1.8em;
-    }
-}
-@media(max-width:900px){
-    .indicator{
-        font-size: 1.4em;
-    }
-}
-@media(max-width:800px){
-    .indicator{
-        font-size: 1em;
-    }
 }
 
 

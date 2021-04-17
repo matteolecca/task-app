@@ -1,8 +1,9 @@
-const MILLISECOND_IN_DAY = 86400000
+import moment from 'moment'
+
 export const  getCompletionPercentage = task =>{
-        const startDate = task.start_date
-        const endDate = task.end_date
-        const diffStartEnd = (new Date(endDate) - new Date(startDate))/ MILLISECOND_IN_DAY
-        const diffTodayEnd = (new Date() - new Date(startDate)) / MILLISECOND_IN_DAY
-        return (diffTodayEnd / diffStartEnd * 100).toFixed(0)
+       const diffStartEnd = (moment(task.end_date).diff(moment(task.start_date), 'day') )
+       const diffTodayEnd = (moment().diff(moment(task.start_date), 'day') )
+       if(diffStartEnd === 0 && diffTodayEnd === 0) return 0
+       const percentage = diffTodayEnd / diffStartEnd *  100
+       return percentage
 }

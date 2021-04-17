@@ -2,16 +2,15 @@ import React  from 'react';
 import classes from './Priorityproject.module.css'
 import ProgressBar from 'react-customizable-progressbar'
 const Priorityproject = props => {
-   
+   const {title, progress, color} = props
     return (
         <div className={classes.Priorityproject}>
-                <h2 className={classes.projectdesc}>{props.title}</h2>
-                <div className={classes.projectdate}>{props.date}</div>
+                <h4 className={classes.projectdesc}>{title}</h4>
                 <ProgressBar
-                    progress={props.progress}
+                    progress={progress}
                     radius={100}
-                    strokeColor={props.color}>
-                    <label className={classes.indicator}>{props.progress}%</label>
+                    strokeColor={color}>
+                    <label className={classes.indicator}>{progress}%</label>
                 </ProgressBar>
         </div>
     );

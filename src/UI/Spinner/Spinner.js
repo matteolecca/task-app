@@ -1,13 +1,9 @@
 import React from 'react';
 import classes from './Spinner.module.css'
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 const Spinner = props => {
     const big = props.big ? classes.big : null
-    const color = props.light ? classes.light : null
-
-    return (
-        <div className={[classes.Spinner, big, color].join(' ')}>
-            {props.children}
-        </div>
-    );
+    return <CircularProgress className={[classes.spinner, big].join(' ')}/>
 };
 export default Spinner;

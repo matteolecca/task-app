@@ -1,4 +1,23 @@
-.Spinner {
+.spinner{
+  height: 20px !important;
+  width: 20px !important;
+  text-align: center;
+}
+.spinner svg{
+  color: var(--main-background);
+}
+.big{
+  width: 60px !important;
+  height: 60px !important;
+}
+.big svg{
+  color: #333;
+}
+
+
+
+
+/* .Spinner {
     font-size: 10px;
     margin: 0 auto;
     text-indent: -9999em;
@@ -6,12 +25,12 @@
     height: 2.5em;
     top: 50%;
     border-radius: 50%;
-    background: #333333;
-    background: -moz-linear-gradient(left, #7e0202 10%, rgba(232,129,33, 0) 42%);
-    background: -webkit-linear-gradient(left, #333333 10%, rgba(232,129,33, 0) 42%);
-    background: -o-linear-gradient(left, #333333 10%, rgba(232,129,33, 0) 42%);
-    background: -ms-linear-gradient(left, #333333 10%, rgba(232,129,33, 0) 42%);
-    background: linear-gradient(to right, #333333 10%, rgba(232,129,33, 0) 42%);
+    background: var(--main-color);
+    background: -moz-linear-gradient(left, var(--main-color) 10%, rgba(232,129,33, 0) 42%);
+    background: -webkit-linear-gradient(left, var(--main-color) 10%, rgba(232,129,33, 0) 42%);
+    background: -o-linear-gradient(left, var(--main-color) 10%, rgba(232,129,33, 0) 42%);
+    background: -ms-linear-gradient(left, var(--main-color) 10%, rgba(232,129,33, 0) 42%);
+    background: linear-gradient(to right, var(--main-color) 10%, rgba(232,129,33, 0) 42%);
     -webkit-animation: load3 1.4s infinite linear;
     animation: load3 1.4s infinite linear;
     -webkit-transform: translateZ(0);
@@ -23,22 +42,23 @@
     height: 15em;
   }
   .Spinner.big::before{
-    background: #838282;
+    background:var(--main-color);
   }
   .Spinner.big::after{
-    background: #ececec;
+    background: var(--main-background);
+  }
+  .Spinner.main::before{
+    background: var(--main-color);
+  }
+  .Spinner.main::after{
+    background: var(--secondary-background);
   }
 
-  .Spinner.light::before{
-    background: #ffffff;
-  }
-  .Spinner.light::after{
-    background: #333333;
-  }
+
   .Spinner:before {
     width: 50%;
     height: 50%;
-    background: #333333;
+    background: var(--button-color);
     border-radius: 100% 0 0 0;
     position: absolute;
     top: 0;
@@ -46,7 +66,7 @@
     content: '';
   }
   .Spinner:after {
-    background: #ececec;
+    background: var(--button-background-color);
     width: 75%;
     height: 75%;
     border-radius: 50%;
@@ -85,4 +105,4 @@
       width: 10em;
       height: 10em;
   }
-}
+} */

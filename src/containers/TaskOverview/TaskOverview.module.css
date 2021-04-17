@@ -1,17 +1,33 @@
 .TaskOverview{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 400px;
-    background-color: #ffffff;
+    height: 350px;
+    background-color: var(--main-background);
     border-radius: 10px 10px 0 0 ;
     transition: all 0.5s;
     z-index: 200;
     display: grid;
     grid-template-columns: 60% 40%;
+    grid-template-rows: 10% 90%;
     align-items: center;
+    white-space: nowrap;
 }
+.dropBorder{
+    background-color: #cccccc;
+    width: 10%;
+    height: 30%;
+    border-radius: 20px;
+}
+.ButtonContainer{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 .opened{
     animation: open 0.7s forwards;
@@ -20,12 +36,36 @@
     animation: close 1s forwards;
 }
 .percentageContainer{
+    display: flex;
     border-radius: 20px;
     width: 60%;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto;
 }
+.Topbar{
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border-radius: 10px 10px 0 0 ;
+    background-color: var(--secondary-background);
+    border-bottom: 1px solid var(--main-background);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Topbar button{
+    background-color: inherit;
+    border-radius: 10px 10px 0 0 ;
+    border: none;
+    outline: none;
+    color: var(--main-color);
+}
+
 .TaskInfo{
-    /* background-color: #ececec; */
     display: flex;
     align-items: center;  
     justify-content: right;
@@ -37,12 +77,13 @@
     margin: 0 10px 0 10px;
 }
 .TaskInfo span{
-    font-size: larger;
     margin-right: 10px;
-    font-weight: 500;
 }
-
-.TaskOverview h1{
+.EditIcon{
+    position: absolute;
+    right: 0;
+}
+.TaskOverview h2{
     margin-left: 10px;
 }
 .TaskInfoContainer{
@@ -52,7 +93,9 @@
 
 @media(max-width:800px){
     .TaskOverview{
+        width: 100vw;
         display: grid;
+        grid-template-columns: 100%;
     }
     .percentageContainer{
         display: none;

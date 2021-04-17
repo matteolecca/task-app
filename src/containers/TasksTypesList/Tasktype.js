@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 import * as actions from '../../redux/actions'
 
 const TaskType = props =>{
-    const setTaskTypeHandler = () =>{
-
-    }
     const selected = props.type === props.typeSelected ? classes.selected : null
     return (
         <div onClick={()=>props.setTasktype(props.type)} className={[classes.TaskType, classes[props.type], selected].join(' ')}>

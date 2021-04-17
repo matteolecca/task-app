@@ -10,7 +10,7 @@ const Stat = props => {
         <label className={classes.black}><strong>{props.count}+</strong></label>
         <div className={classes.StatusContainer}>
             <label className={classes.black}><strong>{props.status}</strong></label>
-            <label>{props.percentage.toFixed(1)}%</label>
+            <label className={color}>{props.percentage.toFixed(0)}%</label>
         </div>
     </div>
     );

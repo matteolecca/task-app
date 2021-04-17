@@ -1,8 +1,7 @@
 import React from "react";
 import Carousel from "react-elastic-carousel";
 
-const C = props => {
-
+const Slider = props => {
     return (
         <Carousel >
            {props.children}
@@ -11,5 +10,5 @@ const C = props => {
 
 }
 
-export default (C)
+export default (Slider)
 

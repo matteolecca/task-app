@@ -1,60 +1,72 @@
-.Titlebar{
-    margin-bottom:  10px;
+.Titlebar {
+    margin-bottom: 10px;
 }
-.row{
+
+.row {
     display: flex;
     justify-content: space-between;
 }
-.Title{
+
+.Title {
     font-weight: 700;
     width: 100%;
     text-align: left;
 }
-.Barbuttoncontainer{
+
+.Barbuttoncontainer {
     display: flex;
 }
 
-.TasksTypes{
+.TasksTypes {
     width: 80%;
     margin: 0 auto;
     justify-content: space-evenly;
     display: flex;
 }
-.TasksTypes button{
+
+.TasksTypes button {
     color: #ffffff;
     padding: 10px;
     border-radius: 10px;
     width: inherit;
     margin: 10px 5px;
 }
-.Titlebar button{
+
+.Titlebar button {
     border: none;
     outline: none;
-    /* background-color: #ffffff; */
     transition: all 0.5s;
 }
 
-.Barbuttoncontainer button{
-    background-color: #ffffff;
+.Barbuttoncontainer button {
+    color: var(--main-color);
+    background-color: inherit;
 }
-.Titlebar button:hover{
+
+.Titlebar button:hover {
     cursor: pointer;
     opacity: 0.5;
 }
 
-.Titlebar button:active{
+.Titlebar button:active {
     opacity: 0;
 }
 
-.active{
+.active {
     background-color: green;
 }
-.passed{background-color: rgba(233, 3, 3, 1);}
-.scheduled{background-color: rgb(233, 233, 1);}
 
+.passed {
+    background-color: rgba(233, 3, 3, 1);
+}
 
-@media(max-width:600px){
-    .Barbuttoncontainer{
-        display: none;
+.scheduled {
+    background-color: rgb(233, 233, 1);
+}
+
+@media(max-width:600px) {
+    .Barbuttoncontainer button {
+        color: var(--main-color);
+        background-color: var(--main-background);
     }
 }
