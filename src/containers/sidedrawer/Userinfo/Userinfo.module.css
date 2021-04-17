@@ -1,0 +1,17 @@
+.Userinfo{
+    text-align:  center;
+}
+.Usericon{
+    width: 25%;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+.Username{
+    margin: 10px auto 3px auto;
+    display: block;
+    font-weight: bold;
+}
+.Userrole{
+    font-weight: bold;
+    color: #bebebe;
+}

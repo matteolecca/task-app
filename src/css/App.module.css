@@ -1,0 +1,24 @@
+.light {
+      --main-background: #ffffff;
+      --secondary-background: #ececec;
+      --tertiary-background: #4b4b4b;
+      --main-color: #333333;
+      --button-background-color: #333333;
+      --button-color: #ffffff;
+      --shadow-color :  #ececec;
+      --error-color :  #fc2828;
+      background-color: var(--main-background);
+}
+
+.dark {
+      --main-background: #333;
+      --secondary-background: #494949;
+      --tertiary-background: #535353;
+      --main-color: #ffffff;
+      --button-background-color: #333333;
+      --button-color: #ffffff;
+      --shadow-color :  #464646;
+      --error-color :  #ff5959;
+      background-color: var(--main-background);
+}
+

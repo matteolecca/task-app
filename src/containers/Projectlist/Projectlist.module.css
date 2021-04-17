@@ -1,0 +1,26 @@
+.Projectlist{
+    height: 100%;
+    width: 100%;
+}
+.ListContainer{
+    height: 80%;
+    overflow-x: scroll;
+}
+.Projectlist,
+.ListContainer{
+    border-radius: 10px;
+}
+.TaskTypeTitle{
+    text-transform: capitalize;
+}
+@media(max-width:800px){
+    .Projectlist{
+        height: fit-content;
+    }
+}
+@media(max-width:600px){
+    .Projectlist{
+        max-height: fit-content;
+        grid-template-rows: 10% 15% auto;
+    }
+}

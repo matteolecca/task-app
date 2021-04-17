@@ -1,0 +1,13 @@
+.Userinfo{
+    grid-column-start: 3;
+    margin: 0 auto;
+}
+.Username{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.Username img{
+    margin-right: 10px;
+}

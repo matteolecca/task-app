@@ -1,0 +1,129 @@
+.Sidedrawer {
+    position: fixed;
+    width: 50%;
+    max-width: 100%;
+    min-height: 100vh;
+    top: 0;
+    bottom: 0;
+    z-index: 200;
+    overflow: scroll;
+    background-color: var(--main-background);
+    padding: 32px 16px;
+    box-sizing: border-box;
+    transform: translateX(-200%);
+    transition: all 0.5s;
+    justify-content: center;
+    border-radius: 0 15px 15px 0;
+    -webkit-border-radius: 0 15px 15px 0;
+    -moz-border-radius: 0 15px 15px 0;
+    -ms-border-radius: 0 15px 15px 0;
+    -o-border-radius: 0 15px 15px 0;
+}
+
+.Container {
+  text-align: center;
+}
+.ButtonsContainer{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.UserIconContainer {
+    height: fit-content;
+    width: fit-content;
+    margin: 0 auto;
+}
+.userIcon{
+   width: 40%;
+   margin-top: 50px;
+}
+
+.userName {
+    text-align: center;
+    font-weight: 700;
+    font-size: larger;
+    text-transform: uppercase;
+}
+
+.closeIcon {
+    border-radius: 1.5em;
+    padding: 5px;
+    transition: all 0.5s;
+    color: var(--main-color);
+}
+
+.opened {
+    animation: openDrawer 0.5s ease-out forwards;
+}
+
+.closed {
+    animation: closeDrawer 0.5s ease-out forwards;
+}
+
+.closeIcon:hover {
+    transition: all 0.5s;
+    opacity: 0.6;
+    cursor: pointer;
+    background-color: #ececec;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+
+.closeIcon:active {
+    color: #ffffff;
+}
+
+.container {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-background);
+    width: 90%;
+    margin: 25px auto;
+    border-radius: 10px;
+}
+
+.container div {
+    margin: 0;
+    width: 100%;
+}
+
+@keyframes openDrawer {
+    0% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes closeDrawer {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+@media(max-width:768px) {
+    .Sidedrawer {
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;
+        overflow: scroll;
+        width: 100%;
+        padding: 0;
+    }
+    .closeIcon{
+        margin: 20px;
+    }
+    .userIcon{
+        margin-top: 0;
+    }
+}

@@ -1,0 +1,147 @@
+.Topbar {
+    height: 10vh;
+    box-shadow: 1px 1px var(--secondary-background);
+    background-color: var(--main-background);
+    display: flex;
+    justify-content: space-between;
+    color: var(--main-color);
+}
+
+.itemContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+}
+
+.UserLink {
+    color: var(--main-color);
+    font-weight: 600;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: var(--secondary-background);
+    display: flex;
+    transition: all 0.5s;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+.UserLink:hover{
+    color: var(--main-background);
+    border-radius: 20%;
+    opacity: 0.6;
+    -webkit-border-radius: 20%;
+    -moz-border-radius: 20%;
+    -ms-border-radius: 20%;
+    -o-border-radius: 20%;
+}
+.UserButton {
+    height: 80%;
+    background-color: var(--main-background);
+    border-radius: 50%;
+    border: 1px solid rgba(200, 200, 200, 0.7);
+    padding: 1%;
+    transition: all 0.5s;
+}
+
+.UserButton:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    border: 1px solid #333333;
+}
+
+.welcome {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    text-align: left;
+}
+
+.welcome.night {
+    color: rgb(196, 193, 18);
+}
+
+.welcomeMsg {
+    margin-right: 10px;
+}
+
+.Burger {
+    background-color: var(--main-background);
+    color: var(--main-color);
+    display: none;
+    border: none;
+    outline: none;
+    transition: all 0.5s;
+    padding: 5px;
+}
+
+.Burger:hover {
+    transition: all 0.5s;
+    cursor: pointer;
+    background-color: #ececec;
+    opacity: 0.6;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+
+@media(max-width:1000px) {
+    .Topbar {
+        width: 1000px;
+    }
+}
+
+@media(max-width:800px) {
+    .Topbar {
+        width: 100%;
+    }
+    .Burger {
+        display: block;
+    }
+}
+
+@media(max-height:500px) {
+    .Topbar {
+        height: 50px;
+    }
+}
+
+@media(max-width:650px) {
+    .Topbar {
+        width: calc(100% - 20px);
+        box-shadow: none;
+        margin: 0;
+        padding: 10px;
+    }
+    .Burger {
+        padding: 0;
+        border-radius: 0.5em;
+        padding: 5px;
+    }
+    .itemContainer {
+        padding: 0;
+    }
+    .welcome {
+        width: 100%;
+        margin: 5px 0;
+    }
+    .UserLink {
+        width: 50px;
+    }
+}

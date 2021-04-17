@@ -1,0 +1,130 @@
+/* .react-google-flight-datepicker .date-picker-input {
+  border: none !important;
+}
+
+svg.icon-calendar {
+  display: none !important;
+}
+
+.dialog-date-picker.open, .dialog-date-picker.hide {
+  width: 400px !important;
+}
+
+.react-google-flight-datepicker, .date-picker.my-own-class-name, .date-picker-input {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.selected-date {
+  color: #1a73e8 !important;
+}
+
+.text-day, .month-calendar, .weekdays {
+  color: var(--main-color) !important;
+}
+
+.day.disabled {
+  opacity: 0.1;
+}
+
+div#start-date-input-button {
+  background-color: var(--tertiary-background);
+}
+
+.selected-date {
+  color: var(--main-color) !important;
+}
+
+.dialog-date-picker.open {
+  background: var(--main-background) !important;
+}
+
+.react-google-flight-datepicker .date:focus::after, .react-google-flight-datepicker .date.is-focus::after {
+  border: 2px solid var(--main-color) !important;
+}
+
+
+
+div#start-date-input-button {
+  background-color: inherit
+}
+
+.date-picker.my-own-class-name {
+  background-color: inherit !important;
+}
+
+.dialog-date-picker {
+  background-color: var(--tertiary-background) !important;
+}
+
+.dialog-header {
+  background-color: var(--main-background) !important;
+}
+
+.dialog-content {
+  background-color: var(--main-background) !important;
+}
+
+.react-google-flight-datepicker .dialog-footer .submit-button {
+  color: var(--main-color) !important;
+}
+
+.react-google-flight-datepicker .day:hover::after {
+  background-color: var(--main-background) !important;
+  border: 2px solid var(--main-color) !important;
+}
+
+.react-google-flight-datepicker .day.selected::after {
+  background-color: var(--tertiary-color) !important;
+}
+.react-google-flight-datepicker .day.selected.text-day::after {
+  color: var(--main-background) !important;
+} */
+
+/* div#start-date-input-button {
+  border: none !important;
+}
+
+.react-google-flight-datepicker .date-picker-input {
+  height: 90% !important;
+  border: none !important;
+}
+
+
+
+@media(max-width:768px) {
+  .dialog-date-picker.open, .dialog-date-picker.hide {
+    width: 100vw !important;
+  }
+  .react-google-flight-datepicker {
+    width: 50% !important;
+    height: 60% !important;
+    margin-right: 20px;
+  }
+  .dialog-date-picker.open {
+    background: #ffffff !important;
+  }
+  .react-google-flight-datepicker .date-picker{
+    height: 100% !important;
+  }
+} */
+@media( min-width: 768px) {
+  .dialog-date-picker {
+    left: -100% !important;
+  }
+}
+.react-google-flight-datepicker .date-picker,
+div#start-date-input-button{
+  background: var(--main-background) !important;
+}
+.react-google-flight-datepicker .selected-date{
+  color: var(--main-color);
+}
+/* .react-google-flight-datepicker .dialog-date-picker{
+  background: var(--main-background) !important;
+  opacity: 1 !important;
+}
+.react-google-flight-datepicker .dialog-content{
+  background: var(--main-background) !important;
+  opacity: 1 !important;
+} */

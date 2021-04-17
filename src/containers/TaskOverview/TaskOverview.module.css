@@ -1,0 +1,121 @@
+.TaskOverview{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 350px;
+    background-color: var(--main-background);
+    border-radius: 10px 10px 0 0 ;
+    transition: all 0.5s;
+    z-index: 200;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 10% 90%;
+    align-items: center;
+    white-space: nowrap;
+}
+.dropBorder{
+    background-color: #cccccc;
+    width: 10%;
+    height: 30%;
+    border-radius: 20px;
+}
+.ButtonContainer{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.opened{
+    animation: open 0.7s forwards;
+}
+.closed{
+    animation: close 1s forwards;
+}
+.percentageContainer{
+    display: flex;
+    border-radius: 20px;
+    width: 60%;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.Topbar{
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border-radius: 10px 10px 0 0 ;
+    background-color: var(--secondary-background);
+    border-bottom: 1px solid var(--main-background);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Topbar button{
+    background-color: inherit;
+    border-radius: 10px 10px 0 0 ;
+    border: none;
+    outline: none;
+    color: var(--main-color);
+}
+
+.TaskInfo{
+    display: flex;
+    align-items: center;  
+    justify-content: right;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    width: 95%;
+}
+.TaskInfo svg{
+    margin: 0 10px 0 10px;
+}
+.TaskInfo span{
+    margin-right: 10px;
+}
+.EditIcon{
+    position: absolute;
+    right: 0;
+}
+.TaskOverview h2{
+    margin-left: 10px;
+}
+.TaskInfoContainer{
+    display: grid;
+    height: 90%;
+}
+
+@media(max-width:800px){
+    .TaskOverview{
+        width: 100vw;
+        display: grid;
+        grid-template-columns: 100%;
+    }
+    .percentageContainer{
+        display: none;
+    }
+}
+@keyframes open{
+    0%{
+       transform: translateY(300%);
+    }
+    
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes close{
+    0%{
+        transform: translateY(0%);
+     }
+     100%{
+         transform: translateY(300%);
+     }
+}

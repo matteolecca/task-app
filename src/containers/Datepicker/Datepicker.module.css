@@ -1,0 +1,46 @@
+.DatePickerContainer{
+    width: 90%;
+    margin: 0 auto;
+    /* border: 1px solid rgba(200, 200, 200, 0.7); */
+    display: inline-flex;
+    transition: all 0.5s;
+    align-items: center;
+    justify-content: space-between;
+}
+.DateTypeContainer{
+    /* border: 1px solid rgba(200, 200, 200, 0.7); */
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+}
+.title{
+    margin-left: 10px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+.title svg{
+    margin-right: 10px;
+}
+.inputContainer{
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.Datepicker.start svg{
+    color: rgba(34, 196, 47,0.7);
+}
+.Datepicker.end svg{
+    color: rgba(196, 39, 34, 0.7);
+}
+.last{
+    border-radius: 0 0 5px 5px;
+}
+
+

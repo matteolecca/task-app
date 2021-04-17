@@ -1,0 +1,57 @@
+.Listitem{
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+.Buttonscontainer{
+    display: flex;
+}
+
+.priority{
+    margin-left: 5px;
+    font-weight: 500;
+ 
+}
+.descContainer{
+    margin: 10px 0;
+    width: 100%;
+    display: block;
+    justify-content: space-between;
+}
+.dateContainer{
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+.Listitem svg,
+.Listitem label
+{
+    color: var(--main-color) !important;
+    /* filter: brightness(40%);     */
+}
+.desc{
+    font-weight: 400;
+    text-align: left;
+}
+.Prioritycontainer{
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+.Listitem button{
+    outline: none;
+    background-color: inherit;
+    border: none;
+}
+.Listitem button:hover{
+    cursor: pointer;
+    opacity: 0.7;   
+}
+.Listitem button:active{
+    opacity: 1;   
+}

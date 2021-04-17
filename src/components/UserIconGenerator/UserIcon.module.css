@@ -1,0 +1,9 @@
+.UserIcon{
+    background-color: var(--secondary-background);
+    padding: 20px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: var(--main-color);
+    font-weight: 700;
+    text-align: center;
+}
