@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../../UI/Button/Button';
-import Forminput from '../../components/Forminput/Forminput';
+import Forminput from '../../components/Input copy/Input';
 import classes from './Loginform.module.css'
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import Linkrow from '../../components/Forminput/Linkrow/Linkrow'

@@ -1,9 +1,8 @@
 import React, {   useEffect, useState } from 'react';
-import Forminput from '../../components/Forminput/Forminput';
+import Forminput from '../../components/Input copy/Input';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import classes from './Newtask.module.css'
 import Datepicker from '../Datepicker/DatepickerContainer'
-import Task from '@material-ui/icons/AssignmentTurnedInOutlined';
 import Colorbar from '../../components/Colorbar/Colorbar';
 import Button from '../../UI/Button/Button';
 import Select from '../../UI/Select/Select';
@@ -47,7 +46,8 @@ const Newtask = props => {
         
     }
 
-    const handleValueChange = (value, type,ID) => {
+    const handleValueChange = (value, type) => {
+        console.log(value, type)
         if(type=== 'START_DATE')selectStart(true)
         setValue(value, type)
     }
@@ -65,9 +65,7 @@ const Newtask = props => {
                     </div>
                     <form >
                         <img alt="" className={classes.logo} src={appearenceStyle === 'light' ? logo : logoDark}></img>
-                        <Forminput value={task.text} valid={validText} onselect={handleSelected} onchange={handleValueChange} ID="TEXT" first type="text" placeholder="Task name">
-                            <Task />
-                        </Forminput>
+                        <Forminput value={task.text} valid={validText} onselect={handleSelected} onchange={handleValueChange} ID="text" first type="text" placeholder="Task name"/>
                         <Datepicker date={task.start_date} disabled={false}  mindate={task.start_date}onselect={handleSelected} ID="START_DATE" onchange={handleValueChange} placeholder="Start date" type="start" label="Start date" ><StartdateIcon /></Datepicker>
                         <Datepicker date={task.end_date} disabled={!startSelected}  mindate={task.start_date} last onselect={handleSelected} ID="END_DATE" onchange={handleValueChange} placeholder="End date" type="end" label="End date" ><StartdateIcon /></Datepicker>
                         <Select value={task.priority} title="Priority" onselect={handleSelected} ID="PRIORITY" onchange={handleValueChange} />

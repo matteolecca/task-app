@@ -12,6 +12,7 @@
 
 .ActiveContainer {
     display: flex;
+    min-height: 50px;
     border-radius: 10px;
     margin-bottom: 10px;
     justify-content: space-between;
@@ -22,6 +23,8 @@
     margin: 10px 10px 0 10px;
     text-transform: capitalize;
     margin-left: 10px;
+    color: var(--main-color);
+    font-weight: 700;
 }
 
 .RadioContainer {
