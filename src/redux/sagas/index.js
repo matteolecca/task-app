@@ -1,6 +1,6 @@
 import { takeEvery, all } from 'redux-saga/effects';
 import * as actions from '../actions'
-import { checkAuth, login, logout, signup, updateUser } from './auth-saga';
+import { checkAuth, login, logout, resetPwd, signup, updateUser } from './auth-saga';
 import {deleteTask, loadTasks, createTask, completeTask, editTask, reloadTasks} from './tasks-saga'
 
 export function* taskListener() {
@@ -17,5 +17,6 @@ export function* taskListener() {
         takeEvery(actions.LOGIN, login),
         takeEvery(actions.SIGNUP, signup),
         takeEvery(actions.UPDATE_USER, updateUser),
+        takeEvery(actions.RESET_PWD, resetPwd),
     ])
 }

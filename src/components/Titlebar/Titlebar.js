@@ -3,6 +3,8 @@ import classes from './Titlebar.module.css'
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import Restartbutton from '../../UI/Itembutton/Restartbutton';
 import { connect } from 'react-redux';
+import Tooltip from '@material-ui/core/Tooltip';
+
 const Titlebar = props => {
     const { reloadTasks, loading, modalHandler } = props
 
@@ -11,7 +13,7 @@ const Titlebar = props => {
             <div className={classes.row}>
                 <h2 className={classes.Title}>Today's tasks</h2>
                 <div className={classes.Barbuttoncontainer}>
-                    <button onClick={modalHandler}><AddCircleIcon /></button>
+                    <Tooltip placement="left" title="new task"><button onClick={modalHandler}><AddCircleIcon /></button></Tooltip>
                     <Restartbutton loading={loading} clicked={reloadTasks} />
                 </div>
             </div>

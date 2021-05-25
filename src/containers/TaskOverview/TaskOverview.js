@@ -34,7 +34,7 @@ const TaskOverview = props => {
                         <Priorityproject
                             key={props.task.ID}
                             title="Completion Percentage"
-                            progress={getCompletionPercentage(props.task)}
+                            progress={parseInt(getCompletionPercentage(props.task))}
                             color="#333333"
                         />
                     </div>

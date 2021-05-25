@@ -14,12 +14,13 @@ import TasksTypesList from '../TasksTypesList/TasksTypesList';
 import FloatingButton from '../../UI/FloatingButton/FloatingButton';
 import TaskOverview from '../TaskOverview/TaskOverview';
 import SwitchButton from '../../components/SwitchButton/SwitchButtonsContainer';
-
+import logo from '../../images/app-logo.png'
+import logoDark from '../../images/app-logo-dark.png'
 const Main = props => {
     const [modalTaskOpened, openModalTask] = useState(false)
     const [taskInfoOpen, openTaskInfo] = useState(false)
     const [taskToEdit, setTaskToEdit] = useState(null)
-    const { menuOpened, openMenu, loadTasks, } = props
+    const { menuOpened, openMenu, loadTasks, style } = props
     
     useEffect(() => {
             loadTasks()
@@ -126,7 +127,7 @@ const Main = props => {
                 </div>
             </div>
             <TaskOverview setTask={setTaskToEditHandler} edit={modalHandler} opened={taskInfoOpen} close={openTaskInfo} />
-            <Sidedrawer close={closeMenu} clicked={sideOpenHandler} opened={props.menuOpened} />
+            <Sidedrawer logo={style === 'light' ? logo : logoDark} close={closeMenu} clicked={sideOpenHandler} opened={props.menuOpened} />
             <Newtask resetTask={setTaskToEditHandler} task={taskToEdit} close={closeMenu} opened={modalTaskOpened} />
             <FloatingButton onclick={modalHandler}/>
         </React.Fragment>
@@ -141,8 +142,8 @@ const Actions = dispatch => {
 }
 const State = state => {
     return {
-        context: state.contextReducer.context
+        context: state.contextReducer.context,
+        style: state.appearenceReducer.style
     }
 }
-
 export default connect(State, Actions)(Main);

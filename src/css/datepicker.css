@@ -110,16 +110,97 @@ div#start-date-input-button {
 } */
 @media( min-width: 768px) {
   .dialog-date-picker {
-    left: -100% !important;
+    left: -105% !important;
+  }
+}
+@media( max-width: 768px) {
+  .react-google-flight-datepicker .icon-calendar.mobile{
+    display: none !important;
   }
 }
 .react-google-flight-datepicker .date-picker,
 div#start-date-input-button{
   background: var(--main-background) !important;
+  border: none !important;
 }
 .react-google-flight-datepicker .selected-date{
   color: var(--main-color);
 }
+.react-google-flight-datepicker .date-picker-input svg{
+  display: none;
+}
+.react-google-flight-datepicker .date-picker-input{
+  border: none !important;
+}
+.react-google-flight-datepicker .date-picker{
+  padding: 0 !important;
+}
+.last .dialog-date-picker{
+  transform: translateX(-20vw) !important;
+  -webkit-transform: translateX(-20vw) !important;
+  -moz-transform: translateX(-20vw) !important;
+  -ms-transform: translateX(-20vw) !important;
+  -o-transform: translateX(-20vw) !important;
+}
+
+.datepicker-matteo{
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--main-color);
+  flex-direction: row;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  user-select: none;
+  justify-content: space-between;
+  width: 100%;
+}
+.datepicker-matteo label{
+  font-size: 1rem;
+  /* border-bottom: 1px solid rgb(136, 136, 136); */
+  line-height: 2.4rem;
+  margin-top: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+.datepicker-matteo.last{
+  margin-left: 20px;
+}
+.datepicker-matteo div button span svg{
+  color: green;
+}
+.datepicker-matteo.last div button span svg{
+  color: red;
+
+}
+.MuiInput-underline:before,
+  .MuiInput-underline:after{
+  border-bottom: none !important;
+}
+.MuiPickersToolbar-toolbar{
+  background-color: #333 !important;
+}
+.MuiPickersDay-daySelected{
+  background-color: #333 !important;
+}
+.MuiButton-textPrimary{
+  color: #333 !important;
+}
+input#date-picker-matteo{
+  color: var(--main-color);
+}
+@media screen and (max-width : 768px){
+  .datepicker-matteo{
+    margin-bottom: 20px;
+  }
+  .datepicker-matteo.last{
+    margin-left: 0;
+  }
+}
+
 /* .react-google-flight-datepicker .dialog-date-picker{
   background: var(--main-background) !important;
   opacity: 1 !important;

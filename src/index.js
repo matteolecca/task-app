@@ -17,6 +17,7 @@ import contextReducer from './redux/reducers/app-context-reducer'
 import authReducer from './redux/reducers/auth-reducer'
 import taskInfoReducer from './redux/reducers/task-info-reducer'
 import appearenceReducer from './redux/reducers/app-appearence-reducer'
+import pwdResetReducer from './redux/reducers/password-reset-reducer'
 
 const sagaMiddleware = createSagaMiddleware()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -28,7 +29,8 @@ const store = createStore(
     contextReducer : contextReducer,
     authReducer : authReducer,
     taskInfoReducer : taskInfoReducer,
-    appearenceReducer : appearenceReducer
+    appearenceReducer : appearenceReducer,
+    pwdResetReducer : pwdResetReducer
   }),
   composeEnhancers(
     applyMiddleware(sagaMiddleware)

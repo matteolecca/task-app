@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import mode from './css/App.module.css';
-import Login from './containers/AuthForm/Loginform'
+import Login from './Update/Login/Login'
 import { Switch, Route, Redirect } from 'react-router-dom'
-import Signup from './containers/AuthForm/Signupform';
+import Signup from './Update/Signup/Signup';
 import Main from './containers/Main/Main'
 import Loadingpage from './components/Loadingpage/Loadingpage';
 import { connect } from 'react-redux';
@@ -10,6 +10,7 @@ import * as actions from './redux/actions'
 import UserPage from './containers/UserPage/UserPage';
 import Topbar from './components/Topbar/Topbar';
 import Popup from './components/Popup/Popup';
+import ResetPwd from './Update/ResetPwd/ResetPwd';
 
 function App(props) {
   const [menuOpened, openMenu] = useState(false)
@@ -36,6 +37,12 @@ function App(props) {
         <Route path="/signup">
           {!checking ?
             (props.logged ? <Redirect to="/" /> : <Signup />) :
+            <Loadingpage />
+          }
+        </Route>
+        <Route path="/resetpwd">
+          {!checking ?
+            (props.logged ? <Redirect to="/" /> : <ResetPwd />) :
             <Loadingpage />
           }
         </Route>

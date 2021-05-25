@@ -18,6 +18,7 @@ const Buttonlist = props => {
     }
 
     const NavigateTo = () =>{
+        props.closeMenu()
         history.push('/account')
     }
     return (

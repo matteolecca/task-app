@@ -17,7 +17,7 @@
     border-radius: 20px;
     margin: 10px;
     flex-grow: 1;
-    box-shadow: 0 0 40px 5px var(--shadow-color);
+    box-shadow: 0 0 10px 5px var(--shadow-color);
     overflow: hidden;
 }
 
@@ -145,9 +145,14 @@
     transform: translateX(50%);
 }
 
-@media(max-width:1000px) {
+.visible{
+    animation: enter 1s forwards;
+    -webkit-animation: enter 1s forwards;
+}
+
+@media(max-width:1128px) {
     .Container {
-        min-width: 1000px;
+        min-width: 1128px;
         font-size: smaller;
     }
 }
@@ -209,5 +214,26 @@
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes visibility {
+    0%{
+        opacity: 0;
+    }
+    20%{
+        opacity: 100%;
+    }
+    40%{
+        opacity: 0;
+    }
+    60%{
+        opacity: 100%;
+    }
+    80%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100%;
     }
 }

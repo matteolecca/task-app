@@ -1,0 +1,19 @@
+.Login{
+    height: 100%;
+    margin-top:var(--topbar-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.LoginContainer {
+    width: 60vw;
+    height: fit-content;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.LoginContainer img{
+    width: 30%;
+    margin: 0 auto;
+}

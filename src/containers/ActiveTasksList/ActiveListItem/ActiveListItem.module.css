@@ -43,8 +43,11 @@
 
 .ActiveContainer:last-child {
     margin-bottom: 50px;
+    color: #f00;
 }
-
+.ActiveContainer  .RadioContainer:hover{
+    opacity: 0.4;
+}
 @media(max-width:768px) {
     .ActiveContainer {
         border-radius: 0;

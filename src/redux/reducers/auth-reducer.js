@@ -21,7 +21,7 @@ export default function tasks(state = initialState, action) {
             return { ...state, logged: true, checking: false, logging: false, user: action.user }
         case actions.LOGGING_IN:
             console.log("LOGGED IN")
-            return { ...state, logging: true }
+            return { ...state, logging: true, errorMessage : '' }
         case actions.ERROR_AUTH:
             return { ...state, logging: false, errorMessage: action.message }
         case actions.UPDATING_USER:

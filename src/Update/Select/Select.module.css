@@ -1,0 +1,53 @@
+.SelectContainer{
+    color: var(--main-color);
+    height: 65px;
+    border: none;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    display: flex;
+    background-color: var(--tertiary-background);
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border: 1px solid transparent;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+.SelectContainer .Select{
+    width: 100%;
+    padding: 15px 10px;
+    font-size: smaller;
+    color: var(--main-color);
+    outline: none;
+    border: none;
+    background-color: transparent;
+    text-transform: capitalize;
+}
+.SelectContainer:hover{
+    border: 1px solid var(--main-color);
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+.Select:hover {
+    cursor: pointer;
+}
+.invalid{
+    border: 1px solid red;
+}
+.halfwidth{
+    width: 50%;
+}
+
+@media( max-width: 768px) {
+  
+   
+}

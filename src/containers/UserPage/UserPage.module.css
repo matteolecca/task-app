@@ -2,22 +2,48 @@
 .UserPage img {
     display: flex;
     margin: 50px auto;
-    width: 300px;
+    width: 200px;
 }
 
+.UserDataContainer svg{
+    margin-right: 10px;
+}
+.UserData{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap : 10px;
+    color: var(--main-color);
+}
 .UserDataContainer{
-    width: 90%;
-    margin: 100px auto;
+    display: grid;
+    justify-content: center;
 }
-.LogoutContainer{
-
+.UserDatas .UserDataContainer:last-child{
+    border-left: 1px solid rgba(200, 200, 200, 0.5);
+}
+.UserDatas{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: flex-end;
+    width: 90%;
+    margin: 5vh auto;
+    min-height: calc(90vh - 450px);
 }
 @media screen and (max-width : 768px){
     .UserPage img{
-        width: 50%;
-        margin: 50px auto;
+        width: 125px;
+    }
+    .UserDatas{
+        display: block;
+        margin-top: 0;
     }
     .UserDataContainer{
-        margin: 0 auto 100px auto;
+        justify-content: initial;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .UserDatas .UserDataContainer:last-child{
+        border-left: none;
     }
 }

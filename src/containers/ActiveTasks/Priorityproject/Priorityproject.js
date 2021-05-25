@@ -5,7 +5,7 @@ const Priorityproject = props => {
    const {title, progress, color} = props
     return (
         <div className={classes.Priorityproject}>
-                <h4 className={classes.projectdesc}>{title}</h4>
+                <h4 style={{color : color}} className={classes.projectdesc}>{title}</h4>
                 <ProgressBar
                     progress={progress}
                     radius={100}

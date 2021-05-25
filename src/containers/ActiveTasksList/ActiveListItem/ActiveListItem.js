@@ -4,6 +4,8 @@ import Radio from '@material-ui/core/Radio';
 import { connect } from 'react-redux';
 import * as actions from '../../../redux/actions'
 import { getCompletionPercentage } from '../../../helper/taskCompletionPercentage';
+import Tooltip from '@material-ui/core/Tooltip';
+
 const ActiveListItem = props => {
     console.log(props.project)
     const { text, color, hoursperday, ID } = props.project
@@ -27,6 +29,7 @@ const ActiveListItem = props => {
                 <span className={classes.activelabel}><strong>{title}</strong></span>
                 <span className={classes.activelabel}>{hoursperday} HRS</span>
             </div>
+            <Tooltip title="complete">
             <div className={classes.RadioContainer}>
                 <Radio
                     style={{ color:color }}
@@ -37,6 +40,7 @@ const ActiveListItem = props => {
                     inputProps={{ 'aria-label': 'A' }}
                 />
             </div>
+            </Tooltip>
         </div>
     );
 };

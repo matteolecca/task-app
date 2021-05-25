@@ -1,0 +1,68 @@
+.Modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 400px;
+    min-height: 250px;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    z-index: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.ModalContainer {
+    padding: 35px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ButtonsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.LeaveButton {
+    background-color: red;
+    color: #fff;
+}
+
+.ButtonsContainer button {
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    flex: 1 1;
+    margin: 0 5px;
+}
+
+.ButtonsContainer button:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.ButtonsContainer button:active {
+    opacity: 1;
+}
+
+@media(max-width:768px) {
+    .Modal {
+        width: 90%;
+        margin: 0 auto;
+    }
+}

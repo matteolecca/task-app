@@ -101,9 +101,9 @@
     -o-transition: all 0.5s;
 }
 
-@media(max-width:1000px) {
+@media(max-width:1128px) {
     .Topbar {
-        width: 1000px;
+        width: 1128px;
     }
 }
 

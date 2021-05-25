@@ -1,13 +1,15 @@
 .light {
       --main-background: #ffffff;
       --secondary-background: #ececec;
-      --tertiary-background: #4b4b4b;
+      --tertiary-background: rgb(237, 237, 237);
       --main-color: #333333;
       --button-background-color: #333333;
       --button-color: #ffffff;
       --shadow-color :  #ececec;
       --error-color :  #fc2828;
       background-color: var(--main-background);
+      --button-color : #333 ;
+      --secondary-button-color : rgb(75, 75, 75);
 }
 
 .dark {
@@ -20,5 +22,7 @@
       --shadow-color :  #464646;
       --error-color :  #ff5959;
       background-color: var(--main-background);
+      --button-color : #535353 ;
+
 }
 

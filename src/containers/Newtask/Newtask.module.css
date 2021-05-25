@@ -33,17 +33,25 @@
 
 .NewtaskContainer form {
     display: grid;
+    grid-template-rows: repeat(7,min-content);
     width: 90%;
     height: 95%;
     margin: 0 auto;
     background-color: var(--main-background);
-    grid-template-rows: 30%10%10%10%10%10%10%10%;
     border-radius: 10px;
     padding: 10px;
     overflow-y: auto !important;
     color: var(--main-color);
+    row-gap: 2.5vh;
+    align-items: center;
 }
-
+.DateContainer{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
 .logo {
     height: 100%;
     max-height: 200px;
@@ -75,7 +83,8 @@
 }
 
 .errorMessage {
-    color: var(--error-color);
+    justify-self: center;
+    color: var(--error-color) !important;
     font-size: larger;
     height: 20px;
 }
@@ -138,6 +147,11 @@
         left: 0;
         top: auto;
         transform: translate(50%, 50%);
+    }
+    .DateContainer{
+        width: 100%;
+        height: fit-content;
+        display: block;
     }
     .NewtaskContainer form {
         width: 90%;

@@ -26,6 +26,11 @@ export const UPDATING_USER = 'UPDATING_USER'
 export const USER_UPDATED = 'USER_UPDATED'
 export const SET_APPEARENCE = 'SET_APPEARENCE'
 export const RELOAD_TASKS = 'RELOAD_TASKS'
+export const RESET_PWD = 'RESET_PWD'
+export const RESETTING_PWD = 'RESETTING_PWD'
+export const PWD_RESETTED = 'PWD_RESETTED'
+
+
 
 
 

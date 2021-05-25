@@ -13,7 +13,7 @@ export async function axiosFetch(req, method, values) {
     });
     return { data: result.data }
   } catch (error) {
-    return { error: error.message }
+    return {error : error.response}
   }
 }
 

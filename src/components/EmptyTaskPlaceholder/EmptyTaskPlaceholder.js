@@ -4,8 +4,8 @@ const EmptyTaskPlaceholder = props => {
     return (
         <div className={classes.EmptyTaskPlaceholder}>
             <div className={classes.placeholderContainer}>
-            <h2>No {props.type} tasks present</h2>
-            <img alt="" src="empty.svg"/>
+            <h4>No {props.type} tasks present</h4>
+            {/* <img alt="" src="empty.svg"/> */}
             </div>
         </div>
     );

@@ -22,6 +22,7 @@ const DatePickerContainer = props => {
         <label>{props.label}</label>
       </div>
       <SingleDatePicker
+        className={props.last ? 'last' : null}
         startDate={moment(props.date).format('YYYY-MM-DD')}
         onChange={(startDate) => dateHandler(startDate)}
         minDate={new Date()}
@@ -31,7 +32,6 @@ const DatePickerContainer = props => {
         singleCalendar
         startDatePlaceholder="Start Date"
         disabled={props.disabled}
-        className="my-own-class-name"
         startWeekDay="monday"
         
       />

@@ -14,7 +14,9 @@ const CompletedStats = props => {
         if(props.completed){
             setCompleted(props.completed.length)
             setUncompleted(props.uncompleted.length)
-            setPercentage((completed / (completed + uncompleted) * 100))
+            const per = (completed / (completed + uncompleted) * 100)
+            if(isNaN(per)) setPercentage(100)
+            else setPercentage((completed / (completed + uncompleted) * 100))
         }
         
     },[props.completed, props.uncompleted, completed, uncompleted])

@@ -34,7 +34,7 @@ const Loginform = props => {
                     <img alt="" src={appearenceStyle === 'light' ? logo : logoDark}></img>
                     <Forminput valid={email.valid} onchange={onChange} ID="email" type="email" first placeholder="Email"><MailOutlineIcon /></Forminput>
                     <Forminput valid={password.valid} onchange={onChange} ID="password" type="password" last placeholder="Password"><VpnKeyIcon /></Forminput>
-                    <Linkrow left="Forgot password?" linkleft="/frgtpassword" right="Signup" linkright="/signup" />
+                    <Linkrow left="Forgot password?" linkleft="/resetpwd" right="Signup" linkright="/signup" />
                     <p className={classes.errorMessage}>{error}</p>
                     <Button onclick={loginHandler} color="dark" disabled={!email.valid || !password.valid} loading={logging} medium >Login</Button>
                 </form >
